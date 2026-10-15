@@ -34,7 +34,8 @@ jobs:
             flex rsync glslang-tools libclc-18-dev libllvmspirvlib-18-dev \
             llvm-spirv-18 spirv-tools pkg-config libzip-dev
           python3 -m venv .venv
-          .venv/bin/pip install meson mako packaging
+          .venv/bin/pip install meson mako packaging PyYAML
+          .venv/bin/python -c "import yaml; print('PyYAML', yaml.__version__)"
           echo "$GITHUB_WORKSPACE/.venv/bin" >> "$GITHUB_PATH"
           clang-18 --version
           df -h .
