@@ -146,6 +146,15 @@ namespace ps5keyboard
 								   {"z x c v b n m , . -", "Z X C V B N M ; : _"}});
 		}
 
+		// the accented letters of the languages written in Latin ones, whatever the menus' language: for a
+		// game in another language than the menus (a Spanish game's password, a French name)
+		Page Accents()
+		{
+			return Make("àéñ", {{"à á â ä ã å æ ç è é", "À Á Â Ä Ã Å Æ Ç È É"},
+								   {"ê ë ì í î ï ñ ò ó ô", "Ê Ë Ì Í Î Ï Ñ Ò Ó Ô"},
+								   {"ö õ ø œ ß ù ú û ü ÿ", "Ö Õ Ø Œ ẞ Ù Ú Û Ü Ÿ"}});
+		}
+
 		Page Symbols()
 		{
 			return Make("#+=", {{"@ # $ % ^ & * ( ) =", nullptr},
@@ -472,6 +481,7 @@ namespace ps5keyboard
 				pages.push_back(Latin());
 				pages.insert(pages.end(), own.begin(), own.end());
 			}
+			pages.push_back(Accents());
 			pages.push_back(Symbols());
 			it = made.emplace(key, std::move(pages)).first;
 		}

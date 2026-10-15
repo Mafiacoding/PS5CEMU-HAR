@@ -1,12 +1,13 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // PS5CEMU-HAR: the on-screen keyboards' keys, in the menus' language. The launcher's keyboard
-// (frontend/shell), the 3DS's in-game one (app/ingame3ds.cpp) and the Wii U's (Cemu's swkbd.cpp,
-// patches/cemu) show the same pages, which L1 and R1 go through: the Latin letters and digits, the
-// language's own letters (its accented ones, or its alphabet), then the symbols. A key types its
-// text, or with Shift its capital. Some pages type more than characters: a kana's ゛, ゜ and 小 change
-// the kana before them, Korean's jamo join into syllables, and Vietnamese's tone keys go on the vowel
-// before them. Chinese has no page of its own: its characters need an input method with a
-// dictionary, which the app does not have.
+// (frontend/shell) and the in-game ones (app/keyboard_menu.h: the 3DS's, and the Wii U's, which
+// Cemu's swkbd.cpp hands over, patches/cemu) show the same pages, which L1 and R1 go through: the
+// Latin letters and digits, the language's own letters (its accented ones, or its alphabet), the
+// accented letters of the languages written in Latin ones (for a game in another language than the
+// menus), then the symbols. A key types its text, or with Shift its capital. Some pages type more
+// than characters: a kana's ゛, ゜ and 小 change the kana before them, Korean's jamo join into
+// syllables, and Vietnamese's tone keys go on the vowel before them. Chinese has no page of its own:
+// its characters need an input method with a dictionary, which the app does not have.
 
 #pragma once
 

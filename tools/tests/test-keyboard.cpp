@@ -69,14 +69,16 @@ namespace
 int main()
 {
 	// every language's pages, in the launcher and in game: rows and keys within the keyboards' room,
-	// no key without its text, the symbols last
+	// no key without its text, the accented letters and the symbols last
 	const char* languages[] = {"ja", "en-US", "en-GB", "fr", "fr-CA", "es", "es-419", "de", "it", "nl", "pt-PT", "pt-BR", "ru", "uk", "pl",
 		"cs", "hu", "ro", "el", "tr", "fi", "sv", "da", "nb", "ar", "th", "vi", "id", "ko", "zh-Hans", "zh-Hant", "qps"};
 	for (const char* language : languages)
 		for (bool inGame : {false, true})
 		{
 			const std::vector<Page>& pages = Pages(language, inGame);
-			bool fits = pages.size() >= 2 && pages.back().label == "#+=";
+			// the accented letters before the symbols, whatever the language: a Spanish game's ñ (#51)
+			bool shift = false;
+			bool fits = pages.size() >= 3 && pages.back().label == "#+=" && KeyOf(pages[pages.size() - 2], "Ñ", &shift) && shift;
 			std::string labels;
 			for (const Page& page : pages)
 			{
