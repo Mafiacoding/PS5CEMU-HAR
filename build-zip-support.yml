@@ -1,0 +1,85 @@
+name: Build PS5CEMU-HAR with ZIP support
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 355
+    steps:
+      - name: Checkout PS5-Cemu fork
+        uses: actions/checkout@v4
+        with:
+          ref: PS5-Cemu
+          fetch-depth: 1
+
+      - name: Reclaim runner disk space
+        shell: bash
+        run: |
+          df -h .
+          sudo rm -rf /usr/local/lib/android /opt/hostedtoolcache/CodeQL /usr/share/dotnet || true
+          df -h .
+
+      - name: Install Ubuntu 24.04 build requirements
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            clang-18 lld-18 llvm-18 llvm-18-dev llvm-18-tools libclang-18-dev \
+            cmake ninja-build git make python3 python3-venv python3-pip \
+            flex rsync glslang-tools libclc-18-dev libllvmspirvlib-18-dev \
+            llvm-spirv-18 spirv-tools pkg-config libzip-dev
+          python3 -m venv .venv
+          .venv/bin/pip install meson mako packaging
+          echo "$GITHUB_WORKSPACE/.venv/bin" >> "$GITHUB_PATH"
+          clang-18 --version
+          df -h .
+
+      - name: Patch upstream launcher for ZIP games
+        shell: bash
+        run: |
+          test -f .zip-support/apply_zip_support.py
+          python3 .zip-support/apply_zip_support.py --check .
+          python3 .zip-support/apply_zip_support.py .
+          git diff --check
+
+      - name: ZIP module native smoke tests
+        shell: bash
+        run: |
+          cd .zip-support
+          python3 tests/run_smoke.py
+
+      - name: Cross-build native PS5 release (Cemu, Azahar, melonDS, RADV)
+        shell: bash
+        env:
+          JOBS: '2'
+        run: |
+          make release JOBS=2
+
+      - name: Upload installable PS5 package and symbol ELF
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: PS5CEMU-HAR-ZIP-PS5-release
+          path: |
+            dist/PS5CEMU-HAR-v*.zip
+            dist/SHA256SUMS
+            dist/ps5cemu-v*.elf
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+
+      - name: Upload build logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: PS5CEMU-HAR-ZIP-build-logs
+          path: |
+            build/**/*.log
+            .deps/**/*.log
+          if-no-files-found: ignore
+          retention-days: 7
