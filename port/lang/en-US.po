@@ -23,12 +23,12 @@ msgid "Tower defence"
 msgstr "Tower defense"
 
 #. how a game's picture is scaled: the methods' names
-#: port/app/ingame.cpp:169 port/frontend/shell/settings.cpp:69
+#: port/app/ingame.cpp:175 port/frontend/shell/settings.cpp:69
 #, menu
 msgid "Nearest neighbour"
 msgstr "Nearest neighbor"
 
-#: port/app/ingame3ds.cpp:583
+#: port/app/ingame3ds.cpp:584
 #, menu
 msgid "A on Circle and B on Cross, where the 3DS has them, or the other way round, with X and Y swapped to match."
 msgstr "A on Circle and B on Cross, where the 3DS has them, or the other way around, with X and Y swapped to match."
@@ -38,7 +38,7 @@ msgstr "A on Circle and B on Cross, where the 3DS has them, or the other way aro
 msgid "Centre pad"
 msgstr "Center pad"
 
-#: port/frontend/shell/eden.cpp:834 port/frontend/shell/eden.cpp:1351 port/frontend/shell/hub.cpp:218 port/frontend/shell/shell.cpp:1623
+#: port/frontend/shell/eden.cpp:834 port/frontend/shell/eden.cpp:1351 port/frontend/shell/hub.cpp:218 port/frontend/shell/shell.cpp:1619
 msgid "Favourite"
 msgstr "Favorite"
 
@@ -99,14 +99,14 @@ msgstr ""
 "{{\"name\": \"Sunset\", \"base\": \"midnight\", \"colors\": {{\"wiiu\": \"#ff7a59\", \"ink-0\": \"#120806\"}}, \"corners\": 0.5, \"motif\": \"slashes\"}}\n"
 "base: a theme to start from (classic, midnight, phantom, terminal). colors: ink-0 to ink-2 (the background), text, wiiu, n3ds and nds (each side's), glass, line, good, warn, bad and focus, as #rrggbb. corners: 0 square to 1.5 round. motif: side, none, slashes or grid."
 
-#: port/frontend/shell/shell.cpp:1623
+#: port/frontend/shell/shell.cpp:1619
 msgid "Not a favourite"
 msgstr "Not a favorite"
 
-#: port/frontend/shell/shell.cpp:1918
+#: port/frontend/shell/shell.cpp:1941
 msgid "Added to Favourites"
 msgstr "Added to Favorites"
 
-#: port/frontend/shell/shell.cpp:1918
+#: port/frontend/shell/shell.cpp:1941
 msgid "Taken out of Favourites"
 msgstr "Taken out of Favorites"

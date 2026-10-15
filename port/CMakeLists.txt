@@ -123,6 +123,9 @@ add_library(CemuPS5 STATIC
 	app/ingame3ds.cpp
 	app/ingame3ds.h
 	app/install.cpp
+	app/keyboard.cpp
+	app/keyboard.h
+	app/keyboard_menu.h
 	app/saves.cpp
 	app/saves.h
 	app/lang.cpp
@@ -242,6 +245,7 @@ add_library(CemuPS5 STATIC
 cemu_use_precompiled_header(CemuPS5)
 set_source_files_properties(
 	app/achievements.cpp
+	app/keyboard.cpp
 	app/forwarders.cpp
 	"${PS5CEMU_DEPS}/ps5-forwarder-format/src/psfwd.c"
 	app/netfs.cpp

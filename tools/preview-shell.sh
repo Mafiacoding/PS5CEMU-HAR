@@ -75,7 +75,7 @@ sources=(tools/launcher-preview/shell.cpp tools/launcher-preview/console.cpp
     port/frontend/shell/classic.cpp port/frontend/shell/eden.cpp port/frontend/shell/experiments.cpp port/frontend/shell/hub.cpp port/frontend/shell/installs.cpp port/frontend/shell/library.cpp port/frontend/shell/pages.cpp port/frontend/shell/recent.cpp
     port/frontend/shell/settings.cpp port/frontend/shell/setup.cpp port/frontend/shell/shares.cpp port/frontend/shell/shell.cpp port/frontend/shell/welcome.cpp port/frontend/shell/whatsnew.cpp port/frontend/shell/widgets.cpp
     port/ui/canvas.cpp port/ui/feedback.cpp port/ui/gfx.cpp port/ui/images.cpp port/ui/input.cpp port/ui/qr.cpp port/ui/text.cpp port/ui/theme.cpp
-    port/ui/vkfn.cpp port/app/catalog.cpp port/app/saves.cpp port/app/gameinfo.cpp port/app/lang.cpp port/app/compatibility.cpp port/frontend/actions.cpp
+    port/ui/vkfn.cpp port/app/catalog.cpp port/app/saves.cpp port/app/gameinfo.cpp port/app/lang.cpp port/app/compatibility.cpp port/app/keyboard.cpp port/frontend/actions.cpp
     port/frontend/settings.cpp port/azahar/library.cpp port/azahar/controls.cpp port/azahar/unavailable.cpp
     port/melonds/library.cpp port/melonds/unavailable.cpp)
 

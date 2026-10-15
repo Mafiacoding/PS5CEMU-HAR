@@ -1,0 +1,217 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: ps5cemu <ps5cemu@localhost>
+Date: Thu, 15 Oct 2026 18:28:56 +0000
+Subject: [PATCH] PS5: the software keyboard drawn by the port, in its menus'
+ language
+
+Cemu's keyboard has English keys only: a player whose console speaks
+Russian, Japanese or Thai has no way to type a name in their alphabet, a
+German one no umlauts, and its labels and hints are English whatever the
+language. Its font, the Wii U's own at ImGui's default glyph ranges, has
+only Latin-1 besides.
+
+On the console the port draws it instead (PS5Cemu_DrawKeyboard), as it
+draws the 3DS's keyboard: over the game, in its menus' typeface, with the
+language's pages of keys, which L1 and R1 go through, and its words. The
+form's text goes to the port as UTF-16 and comes back as typed, to at
+most the length swkbd_keyInput allows, within the form; a change is
+written back and reported as a key's is, and the port's OK or Options
+finishes the input as Enter did. The game showing the keyboard again
+(SwkbdAppearInputForm, SwkbdAppearKeyboard) starts the port's over.
+
+The port's earlier changes to Cemu's keyboard (its size at 4K, the
+D-pad's focus, Triangle as shift, the English hints) go: the port reads
+the DualSense for its own keyboard. Elsewhere nothing changes.
+---
+ src/Cafe/OS/libs/swkbd/swkbd.cpp | 91 +++++++++++++++++++-------------
+ 1 file changed, 53 insertions(+), 38 deletions(-)
+
+diff --git a/src/Cafe/OS/libs/swkbd/swkbd.cpp b/src/Cafe/OS/libs/swkbd/swkbd.cpp
+index 80c1455..69bd121 100644
+--- a/src/Cafe/OS/libs/swkbd/swkbd.cpp
++++ b/src/Cafe/OS/libs/swkbd/swkbd.cpp
+@@ -5,9 +5,6 @@
+ 
+ #include <imgui.h>
+ #include "imgui/imgui_extension.h"
+-#if defined(CEMU_PS5)
+-#include <imgui_internal.h>
+-#endif
+ #include "util/helpers/helpers.h"
+ #include "resource/IconsFontAwesome5.h"
+ 
+@@ -89,6 +86,10 @@ typedef struct
+ }swkbdInternalState_t;
+ 
+ swkbdInternalState_t* swkbdInternalState = nullptr;
++#if defined(CEMU_PS5)
++// how often the game has shown the keyboard, for PS5Cemu to start its keyboard over (swkbd_render)
++std::atomic<uint32> s_ps5Appearances{0};
++#endif
+ sint32 isNeedCalcSubThreadFont = 0;
+ sint32 isNeedCalcSubThreadPredict = 0;
+ 
+@@ -195,6 +196,9 @@ static_assert(offsetof(swkbdAppearArg_t, cursorIndex) == 0xC4, "appearArg.cursor
+ 
+ uint32 SwkbdAppearInputForm(const swkbdAppearArg_t* appearArg)
+ {
++#if defined(CEMU_PS5)
++	s_ps5Appearances++;
++#endif
+ 	swkbdInternalState->formStringLength = 0;
+ 	swkbdInternalState->isActive = true;
+ 	swkbdInternalState->decideButtonWasPressed = false;
+@@ -237,6 +241,9 @@ uint32 SwkbdAppearKeyboard(const SwkbdKeyboardArg_t* keyboardArg)
+ 		debug_printf("+0x%03x: 0x%08x\n", i, memory_readU32(argPtr+i));
+ 	}
+ 
++#if defined(CEMU_PS5)
++	s_ps5Appearances++;
++#endif
+ 	swkbdInternalState->formStringLength = 0;
+ 	swkbdInternalState->isActive = true;
+ 	swkbdInternalState->keyboardOnlyMode = true;
+@@ -401,32 +408,52 @@ void SwkbdCalc(void* controllerInfo)
+ 
+ void swkbd_keyInput(uint32 keyCode);
+ #if defined(CEMU_PS5)
+-// PS5Cemu (ps5cemu/port/app/ingame.cpp): its in-game menu, which takes the controller over the
+-// keyboard, and Triangle, which toggles shift
+-bool PS5Cemu_MenuOpen();
+-bool PS5Cemu_KeyboardShiftPressed();
++void swkbd_inputStringChanged();
++void swkbd_finishInput();
++// PS5Cemu (ps5cemu/port/app/ingame.cpp) draws the keyboard over the game as it draws its 3DS
++// keyboard: in its menus' language, keys and typeface, read from the DualSense. It changes the form's
++// text (UTF-16) to at most maxLength units (counted: a length the game set, which it shows), starts
++// over when appearance changes, and returns true when the text is done.
++bool PS5Cemu_DrawKeyboard(std::u16string& text, sint32 maxLength, bool counted, uint32 appearance);
+ #endif
+ void swkbd_render(bool mainWindow)
+ {
+ 	// only render if active
+ 	if( swkbdInternalState == NULL || swkbdInternalState->isActive == false)
+ 		return;
+-
+-	auto& io = ImGui::GetIO();
+ #if defined(CEMU_PS5)
+-	// VideoOut is 3840x2160: the keyboard at the size it has on a 1080p screen. It is driven with
+-	// the D-pad, and a key keeps its ID, so the highlight stays, when shift changes the layout.
+-	const float uiScale = std::max(1.0f, io.DisplaySize.y / 1080.0f);
+-	int keyIndex = 0;
+-	auto keyLabel = [&keyIndex](const char* key) { return fmt::format("{}###swkbdKey{}", key, keyIndex++); };
+-	if (!PS5Cemu_MenuOpen() && PS5Cemu_KeyboardShiftPressed())
+-		swkbdInternalState->shiftActivated = !swkbdInternalState->shiftActivated;
+-#else
+-	const float uiScale = 1.0f;
+-	auto keyLabel = [](const char* key) { return std::string(key); };
++	if (!mainWindow)
++		return;
++	// the length swkbd_keyInput allows, within the form
++	sint32 maxLength = swkbdInternalState->maxTextLength;
++	if (swkbdInternalState->keyboardOnlyMode)
++	{
++		const uint32 stringBufferSize = swkbdInternalState->keyboardArg.receiverArg.stringBufSize;
++		maxLength = stringBufferSize > 1 ? (sint32)stringBufferSize - 1 : 0;
++	}
++	maxLength = std::clamp<sint32>(maxLength, 0, SWKBD_FORM_STRING_MAX_LENGTH - 1);
++	std::u16string text;
++	for (sint32 i = 0; i < swkbdInternalState->formStringLength; i++)
++		text.push_back((char16_t)swkbdInternalState->formStringBuffer[i]);
++	const std::u16string before = text;
++	const bool done = PS5Cemu_DrawKeyboard(text, maxLength, maxLength < SWKBD_FORM_STRING_MAX_LENGTH - 1, s_ps5Appearances);
++	if (text != before)
++	{
++		const sint32 length = std::min((sint32)text.size(), maxLength);
++		for (sint32 i = 0; i < length; i++)
++			swkbdInternalState->formStringBuffer[i] = text[i];
++		swkbdInternalState->formStringBuffer[length] = '\0';
++		swkbdInternalState->formStringLength = length;
++		swkbd_inputStringChanged();
++	}
++	if (done)
++		swkbd_finishInput();
++	return;
+ #endif
+-	const auto font = ImGui_GetFont(48.0f * uiScale);
+-	const auto textFont = ImGui_GetFont(24.0f * uiScale);
++	
++	auto& io = ImGui::GetIO();
++	const auto font = ImGui_GetFont(48.0f);
++	const auto textFont = ImGui_GetFont(24.0f);
+ 	if (!font || !textFont)
+ 		return;
+ 
+@@ -449,7 +476,7 @@ void swkbd_render(bool mainWindow)
+ 	const auto button_len = font->GetCharAdvance('W');
+ 	const float len = button_len * std::max(4, std::max(swkbdInternalState->maxTextLength, (sint32)swkbdInternalState->keyboardArg.receiverArg.stringBufSize));
+ 
+-	ImVec2 box_size = { std::min(io.DisplaySize.x * 0.9f, len + 90 * uiScale), 0 };
++	ImVec2 box_size = { std::min(io.DisplaySize.x * 0.9f, len + 90), 0 };
+ 	ImGui::SetNextWindowPos(position, ImGuiCond_Always, pivot);
+ 	ImGui::SetNextWindowSize(box_size, ImGuiCond_Always);
+ 	ImGui::SetNextWindowBgAlpha(0.9f);
+@@ -457,7 +484,7 @@ void swkbd_render(bool mainWindow)
+ 	if (ImGui::Begin("Keyboard Input", nullptr, kPopupFlags))
+ 	{
+ 		ImGui::Text("%s", _utf8WrapperPtr(ICON_FA_KEYBOARD));
+-		ImGui::SameLine(70 * uiScale);
++		ImGui::SameLine(70);
+ 		auto text = boost::nowide::narrow(fmt::format(L"{}", swkbdInternalState->formStringBuffer));
+ 
+ 		static std::chrono::steady_clock::time_point s_last_tick = tick_cached();
+@@ -477,7 +504,7 @@ void swkbd_render(bool mainWindow)
+ 		ImGui::TextUnformatted(text.c_str(), text.c_str() + text.size());
+ 		ImGui::PopTextWrapPos();
+ 
+-		position.y += ImGui::GetWindowSize().y + 100.0f * uiScale;
++		position.y += ImGui::GetWindowSize().y + 100.0f;
+ 	}
+ 	ImGui::End();
+ 	ImGui::PopFont();
+@@ -487,16 +514,8 @@ void swkbd_render(bool mainWindow)
+ 	ImGui::SetNextWindowBgAlpha(0.9f);
+ 	ImGui::PushFont(textFont);
+ 
+-#if defined(CEMU_PS5)
+-	if (!PS5Cemu_MenuOpen())
+-		ImGui::SetNextWindowFocus(); // for the D-pad
+-#endif
+ 	if (ImGui::Begin(fmt::format("Software keyboard##SoftwareKeyboard{}",mainWindow).c_str(), nullptr, kPopupFlags))
+ 	{
+-#if defined(CEMU_PS5)
+-		if (ImGui::IsWindowAppearing())
+-			ImGui::GetCurrentContext()->NavDisableHighlight = false; // the first key shows as selected
+-#endif
+ 		if(swkbdInternalState->shiftActivated)
+ 		{
+ 			const char* keys[] =
+@@ -511,7 +530,7 @@ void swkbd_render(bool mainWindow)
+ 			{
+ 				if (*key != '\n')
+ 				{
+-					if (ImGui::Button(keyLabel(key).c_str(), { *key == ' ' ? 537 * uiScale : (button_len + 5 * uiScale), 0}))
++					if (ImGui::Button(key, { *key == ' ' ? 537 : (button_len + 5), 0}))
+ 					{
+ 						if (strcmp(key, _utf8WrapperPtr(ICON_FA_ARROW_CIRCLE_LEFT)) == 0)
+ 							swkbd_keyInput(8);
+@@ -543,7 +562,7 @@ void swkbd_render(bool mainWindow)
+ 			{
+ 				if (*key != '\n')
+ 				{
+-					if (ImGui::Button(keyLabel(key).c_str(), { *key == ' ' ? 537 * uiScale : (button_len + 5 * uiScale), 0 }))
++					if (ImGui::Button(key, { *key == ' ' ? 537 : (button_len + 5), 0 }))
+ 					{
+ 						if (strcmp(key, _utf8WrapperPtr(ICON_FA_ARROW_CIRCLE_LEFT)) == 0)
+ 							swkbd_keyInput(8);
+@@ -562,10 +581,6 @@ void swkbd_render(bool mainWindow)
+ 			}
+ 		}
+ 		ImGui::NewLine();
+-#if defined(CEMU_PS5)
+-		ImGui::TextUnformatted("D-pad: move    Cross: type    Circle: delete    Triangle: shift    Options: done");
+-		ImGui::TextUnformatted("Touchpad: point, and click to type");
+-#endif
+ 	}
+ 	ImGui::End();
+ 

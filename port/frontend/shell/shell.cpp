@@ -8,6 +8,7 @@
 #include "../sound.h"
 #include "../../app/boxart.h"
 #include "../../app/forwarders.h"
+#include "../../app/keyboard.h"
 #include "../../app/mods.h"
 #include "../../app/pack_updates.h"
 #include "../../app/paths.h"
@@ -46,19 +47,13 @@ namespace ps5shell
 			return s_host;
 		}
 
-		// the keyboard's keys, as the 3DS's in-game keyboard has them (app/ingame3ds.cpp, kKeys), so the
-		// app has one keyboard: small letters, capitals with Shift (its key or Triangle), and symbols on
-		// L1 and R1 (a password, a user name). Ten keys a row; the last row is Shift, Space, Delete, Done.
-		const char* const kKeyRows[3][4] = {
-			{"1234567890", "qwertyuiop", "asdfghjkl'", "zxcvbnm,.-"},
-			{"!?#$%&*()+", "QWERTYUIOP", "ASDFGHJKL\"", "ZXCVBNM;:_"},
-			{"@#$%^&*()=", "~`[]{}\\|/+", "<>;:'\"!?_-", "1234567890"},
-		};
-		constexpr int kKeyboardRows = 5;
-		constexpr int kKeyboardLastRow = 4; // Shift, Space, Delete, Done
-		const char* KeyRow(bool shift, bool symbols, int row)
+		// the keyboard's pages, as the in-game keyboards have them (app/keyboard.h), so the app has one
+		// keyboard: the Latin letters, the menus' language's own, the symbols, which L1 and R1 go
+		// through; capitals with Shift (its key or Triangle). Under a page's rows, Shift, Space, Delete
+		// and Done.
+		const std::vector<ps5keyboard::Page>& KeyboardPages()
 		{
-			return kKeyRows[symbols ? 2 : shift ? 1 : 0][row];
+			return ps5keyboard::Pages(ps5lang::Current());
 		}
 	}
 
@@ -245,11 +240,12 @@ namespace ps5shell
 		}
 		ps5catalog::Save();
 		Frame();
-		// the in-game menus' font for what Lexend lacks: the console's, for this language's words and this
-		// game's name; none for a Latin language and title
+		// the in-game menus' font for what Lexend lacks: the console's, for this language's words, its
+		// keyboard's keys and this game's name; none for a Latin language and title
 		if (m_choice)
 		{
-			const ui::Fonts::FontFile font = m_fonts.FileFor(ps5lang::MenuCharacters() + ui::Decode(m_choice->game.name));
+			const ui::Fonts::FontFile font = m_fonts.FileFor(
+				ps5lang::MenuCharacters() + ps5keyboard::Characters(ps5lang::Current()) + ui::Decode(m_choice->game.name));
 			ps5lang::SetMenuFont({font.path, font.face});
 			if (!font.path.empty())
 				ps5log::Line("[ui] the in-game menu's second font: {} (face {})", font.path, font.face);
@@ -1644,6 +1640,7 @@ namespace ps5shell
 		OpenNameKeyboard(title, text, limit, std::move(done));
 		m_keyboard.raw = true;
 		m_keyboard.secret = secret;
+		m_keyboard.page = ps5keyboard::FirstPage(ps5lang::Current(), true); // an address, a user name, a password
 	}
 
 	void Shell::OpenKeyboard()
@@ -1652,7 +1649,7 @@ namespace ps5shell
 		m_keyboard.raw = false;
 		m_keyboard.secret = false;
 		m_keyboard.shift = false;
-		m_keyboard.symbols = false;
+		m_keyboard.page = ps5keyboard::FirstPage(ps5lang::Current(), false);
 		m_keyboard.done = nullptr;
 		m_keyboard.open = true;
 		m_keyboard.row = 1;
@@ -1737,7 +1734,12 @@ namespace ps5shell
 		}
 		if (m_keyboard.open)
 		{
-			auto rowLength = [](int row) { return row < kKeyboardLastRow ? 10 : 4; };
+			const std::vector<ps5keyboard::Page>& pages = KeyboardPages();
+			m_keyboard.page = std::clamp(m_keyboard.page, 0, (int)pages.size() - 1);
+			const ps5keyboard::Page& page = pages[m_keyboard.page];
+			// the page's rows, then Shift, Space, Delete and Done
+			const int actionRow = (int)page.rows.size();
+			auto rowLength = [&page, actionRow](int row) { return row < actionRow ? (int)page.rows[row].size() : 4; };
 			// what was typed, its spaces at the ends left out, to the one who asked (who may open the
 			// keyboard again for the next field: the call is made from a copy)
 			auto finish = [this] {
@@ -1756,15 +1758,24 @@ namespace ps5shell
 			{
 			case Button::R1:
 			case Button::L1:
-				// the symbols, and back to the letters
-				m_keyboard.symbols = !m_keyboard.symbols;
+			{
+				// the next page, or the one before; the focus where it was, on the keys Shift and the
+				// others stay under
+				const int count = (int)pages.size();
+				m_keyboard.page = (m_keyboard.page + (b == Button::R1 ? 1 : count - 1)) % count;
+				const ps5keyboard::Page& next = pages[m_keyboard.page];
+				const int rows = (int)next.rows.size();
+				m_keyboard.row = m_keyboard.row >= actionRow ? rows : std::min(m_keyboard.row, rows - 1);
+				const int length = m_keyboard.row < rows ? (int)next.rows[m_keyboard.row].size() : 4;
+				m_keyboard.column = std::min(m_keyboard.column, length - 1);
 				m_feedback.Play(ui::Cue::Focus);
 				break;
+			}
 			case Button::Up:
 			case Button::Down:
 			{
 				const int row = m_keyboard.row + (b == Button::Down ? 1 : -1);
-				if (row < 0 || row >= kKeyboardRows)
+				if (row < 0 || row > actionRow)
 					m_feedback.Play(ui::Cue::Edge, press.repeat);
 				else
 				{
@@ -1785,24 +1796,37 @@ namespace ps5shell
 			case Button::Cross:
 			{
 				std::string& text = m_keyboard.naming ? m_keyboard.text : m_search;
-				const bool room = !m_keyboard.naming || text.size() < m_keyboard.limit;
-				const bool last = m_keyboard.row == kKeyboardLastRow;
-				// a key types what it shows
-				if (!last && room)
-					text += KeyRow(m_keyboard.shift, m_keyboard.symbols, m_keyboard.row)[m_keyboard.column];
-				else if (last && m_keyboard.column == 0)
-					m_keyboard.shift = !m_keyboard.shift;
-				else if (last && m_keyboard.column == 1 && room)
-					text += ' ';
-				else if (last && m_keyboard.column == 2 && !text.empty())
-					text.pop_back();
-				else if (last && m_keyboard.column == 3)
-					finish();
-				else if (!room)
+				// a name's limit is in characters, however many bytes they take
+				auto fits = [this](const std::string& typed) { return !m_keyboard.naming || ps5keyboard::Length(typed) <= m_keyboard.limit; };
+				const bool last = m_keyboard.row == actionRow;
+				if (!last)
 				{
-					m_feedback.Play(ui::Cue::Denied);
-					break;
+					// a key types what it shows; some change the character before (a kana's marks, a
+					// Korean syllable, a Vietnamese tone), and one that changes nothing says so
+					const std::string typed =
+						ps5keyboard::Typed(text, page, page.rows[m_keyboard.row][m_keyboard.column], m_keyboard.shift);
+					if (typed == text || !fits(typed))
+					{
+						m_feedback.Play(ui::Cue::Denied);
+						break;
+					}
+					text = typed;
 				}
+				else if (m_keyboard.column == 0)
+					m_keyboard.shift = !m_keyboard.shift;
+				else if (m_keyboard.column == 1)
+				{
+					if (!fits(text + ' '))
+					{
+						m_feedback.Play(ui::Cue::Denied);
+						break;
+					}
+					text += ' ';
+				}
+				else if (m_keyboard.column == 2)
+					text = ps5keyboard::Deleted(text);
+				else
+					finish();
 				m_feedback.Play(ui::Cue::Select);
 				if (!m_keyboard.naming)
 					LibraryRefresh();
@@ -1811,8 +1835,7 @@ namespace ps5shell
 			case Button::Square:
 			{
 				std::string& text = m_keyboard.naming ? m_keyboard.text : m_search;
-				if (!text.empty())
-					text.pop_back();
+				text = ps5keyboard::Deleted(text);
 				m_feedback.Play(ui::Cue::Back);
 				if (!m_keyboard.naming)
 					LibraryRefresh();
@@ -1835,7 +1858,7 @@ namespace ps5shell
 				std::string& text = m_keyboard.naming ? m_keyboard.text : m_search;
 				if (!text.empty())
 				{
-					text.pop_back();
+					text = ps5keyboard::Deleted(text);
 					m_feedback.Play(ui::Cue::Back);
 					if (!m_keyboard.naming)
 						LibraryRefresh();
@@ -2046,7 +2069,17 @@ namespace ps5shell
 		if (m_keyboard.open)
 		{
 			const float a = appear(m_keyboard.at);
-			const Box sheet{960 - 560, 1080 - 60 - 420, 1120, 420};
+			const std::vector<ps5keyboard::Page>& pages = KeyboardPages();
+			const int pageIndex = std::clamp(m_keyboard.page, 0, (int)pages.size() - 1);
+			const ps5keyboard::Page& page = pages[pageIndex];
+			// as tall as the language's tallest page, its keys as wide as its longest row lets ten keys'
+			// width hold them: the sheet stays as it is from page to page
+			const float keyH = 56, gap = 10, tenKeys = 92 * 10 + gap * 9;
+			const int tallest = ps5keyboard::MostRows(ps5lang::Current());
+			const int longest = std::max(10, ps5keyboard::MostKeys(ps5lang::Current()));
+			const float keyW = std::floor((tenKeys - gap * (longest - 1)) / longest);
+			const float height = 86 + (tallest + 1) * (keyH + gap) + 4;
+			const Box sheet{960 - 560, 1080 - 60 - height, 1120, height};
 			canvas.PushAlpha(a);
 			canvas.PushOffset(0, (1 - a) * 60);
 			DrawSheet(canvas, sheet, a);
@@ -2055,7 +2088,7 @@ namespace ps5shell
 			{
 				// a password: a dot for each character
 				std::string dots;
-				for (size_t i = 0; i < typed.size(); i++)
+				for (size_t i = 0; i < ps5keyboard::Length(typed); i++)
 					dots += "•";
 				typed = dots;
 			}
@@ -2063,24 +2096,22 @@ namespace ps5shell
 			canvas.Draw(m_keyboard.naming ? Icon::Sparkle : Icon::Search, {sheet.x + 36, sheet.y + 30, 30, 30}, Secondary());
 			canvas.Text(Style(kHeadingStyle), sheet.x + 80, sheet.y + 26, typed.empty() ? empty : typed + "_", typed.empty() ? Tertiary() : kText,
 				sheet.w - 120 - (m_keyboard.raw ? 260 : 0), 1);
+			// the page R1 goes to, by the letters it has ("abc", "äöü", "абв", "#+=")
+			canvas.Text(Style({22, ui::Weight::Medium, 1.0f}), sheet.Right() - 40 - 240, sheet.y + 34,
+				TrF("L1 R1: {0}", pages[(pageIndex + 1) % pages.size()].label), Secondary(), 240, 1, ui::Align::Right);
+			const int actionRow = (int)page.rows.size();
+			for (int row = 0; row <= actionRow; row++)
 			{
-				// tr: the keyboard's other keys, for text typed as it is: R1 and L1 go to capitals and symbols
-				const char* const layers[] = {Tr("abc"), Tr("#+=")};
-				canvas.Text(Style({22, ui::Weight::Medium, 1.0f}), sheet.Right() - 40 - 240, sheet.y + 34,
-					TrF("L1 R1: {0}", layers[m_keyboard.symbols ? 0 : 1]), Secondary(), 240, 1, ui::Align::Right);
-			}
-			const float keyW = 92, keyH = 56, gap = 10;
-			for (int row = 0; row < kKeyboardRows; row++)
-			{
-				const bool last = row == kKeyboardLastRow;
-				const int length = last ? 4 : 10;
-				// the last row as wide as the others: Shift 2 keys, Space 4, Delete 2, Done 2
-				const float widths[4] = {keyW * 2 + gap, keyW * 4 + gap * 3, keyW * 2 + gap, keyW * 2 + gap};
+				const bool last = row == actionRow;
+				const int length = last ? 4 : (int)page.rows[row].size();
+				// the last row as wide as ten keys, under the tallest page's rows: Shift 2 keys, Space 4,
+				// Delete 2, Done 2
+				const float widths[4] = {92 * 2 + gap, 92 * 4 + gap * 3, 92 * 2 + gap, 92 * 2 + gap};
 				float total = 0;
 				for (int k = 0; k < length; k++)
 					total += (last ? widths[k] : keyW) + (k ? gap : 0);
 				float x = sheet.CentreX() - total / 2;
-				const float y = sheet.y + 86 + row * (keyH + gap);
+				const float y = sheet.y + 86 + (last ? tallest : row) * (keyH + gap);
 				for (int k = 0; k < length; k++)
 				{
 					const float w = last ? widths[k] : keyW;
@@ -2089,7 +2120,7 @@ namespace ps5shell
 					const bool lit = last && k == 0 && m_keyboard.shift; // Shift held on
 					canvas.Rect(key, 12, focused ? kText : lit ? Accent() : Surface2());
 					// tr: the on-screen keyboard's keys
-					const std::string label = !last ? std::string(1, KeyRow(m_keyboard.shift, m_keyboard.symbols, row)[k]) :
+					const std::string label = !last ? ps5keyboard::Label(page.rows[row][k], m_keyboard.shift) :
 						k == 0 ? std::string(m_keyboard.shift ? Tr("Shift: on") : Tr("Shift")) : k == 1 ? Tr("Space") : k == 2 ? Tr("Delete") : Tr("Done");
 					canvas.Text(Style({26, ui::Weight::Medium, 1.0f}), key.x + 8, key.CentreY() - 15, label, focused ? kInk1 : kText, key.w - 16, 1,
 						ui::Align::Centre);

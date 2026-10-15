@@ -7,6 +7,7 @@
 
 #pragma once
 
+#include "keyboard.h"
 #include "lang.h"
 #include "paths.h"
 #include "../ui/text.h"
@@ -40,15 +41,16 @@ namespace ps5menu
 	}
 
 	// The characters the menus' fonts are made with: Latin-1 and the dashes,
-	// quotes, bullet, ellipsis and angle quotes, then only those the language's words and the game's
-	// name have besides, so a menu in English costs what it always did. Lexend has the Latin ones
-	// (tools/render-menu-fonts.py), the console's font the rest (MenuFont). Kept: ImGui's atlases read
-	// them as they are built.
+	// quotes, bullet, ellipsis and angle quotes, then only those the language's words, its keyboard's
+	// keys (app/keyboard.h) and the game's name have besides, so a menu in English costs what it always
+	// did. Lexend has the Latin ones (tools/render-menu-fonts.py), the console's font the rest
+	// (MenuFont). Kept: ImGui's atlases read them as they are built.
 	inline const ImWchar* GlyphRanges(const std::string& title)
 	{
 		static std::vector<ImWchar> ranges;
 		ranges = {0x0020, 0x00ff, 0x2010, 0x2027, 0x2039, 0x203a};
 		std::u32string extra = ps5lang::MenuCharacters();
+		extra += ps5keyboard::Characters(ps5lang::Current());
 		extra += ui::Decode(title);
 		extra += ui::Upper(extra, ps5lang::Current() == "tr"); // the badges' capitals
 		std::sort(extra.begin(), extra.end());

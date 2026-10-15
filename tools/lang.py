@@ -41,6 +41,7 @@ MENU_FILES = {
     "port/app/remote_menu.h",
     "port/app/ingame3ds.h",
     "port/app/menu_canvas.h",
+    "port/app/keyboard_menu.h",
     "port/azahar/core.cpp",
     "port/app/usb_devices.cpp",
     "port/ps5/display.h",

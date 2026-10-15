@@ -36,42 +36,42 @@ msgctxt "genre"
 msgid "Skateboarding"
 msgstr "Patineta"
 
-#: port/app/ingame.cpp:140 port/frontend/actions.cpp:349
+#: port/app/ingame.cpp:146 port/frontend/actions.cpp:349
 #, menu
 msgid "Wii U Pro Controller"
 msgstr "Control Pro de Wii U"
 
-#: port/app/ingame.cpp:141 port/frontend/actions.cpp:350
+#: port/app/ingame.cpp:147 port/frontend/actions.cpp:350
 #, menu
 msgid "Classic Controller"
 msgstr "Control Clásico"
 
-#: port/app/ingame.cpp:142 port/frontend/actions.cpp:351
+#: port/app/ingame.cpp:148 port/frontend/actions.cpp:351
 #, menu
 msgid "Wii Remote"
 msgstr "Control remoto Wii"
 
-#: port/app/ingame.cpp:143 port/frontend/actions.cpp:352
+#: port/app/ingame.cpp:149 port/frontend/actions.cpp:352
 #, menu
 msgid "Wii Remote + Nunchuk"
 msgstr "Control remoto Wii + Nunchuk"
 
-#: port/app/ingame.cpp:146 port/frontend/actions.cpp:355
+#: port/app/ingame.cpp:152 port/frontend/actions.cpp:355
 #, menu
 msgid "No controller"
 msgstr "Sin control"
 
-#: port/app/ingame.cpp:289
+#: port/app/ingame.cpp:295
 #, menu
 msgid "Each player's controller, motion, vibration, deadzones and A and B."
 msgstr "El control de cada jugador, movimiento, vibración, zonas muertas, y A y B."
 
-#: port/app/ingame.cpp:291
+#: port/app/ingame.cpp:297
 #, menu
 msgid "Whose controller the settings below are: Left and Right choose the player."
 msgstr "De quién es el control de los ajustes de abajo: Izquierda y Derecha eligen el jugador."
 
-#: port/app/ingame.cpp:292 port/frontend/shell/pages.cpp:451 port/frontend/shell/pages.cpp:489 port/frontend/shell/pages.cpp:596
+#: port/app/ingame.cpp:298 port/frontend/shell/pages.cpp:451 port/frontend/shell/pages.cpp:489 port/frontend/shell/pages.cpp:596
 #, menu
 msgid "Emulated controller"
 msgstr "Control emulado"

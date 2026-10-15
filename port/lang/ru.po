@@ -97,58 +97,58 @@ msgctxt "status"
 msgid "Won't start"
 msgstr "Не запускается"
 
-#: port/app/emulator.cpp:384
+#: port/app/emulator.cpp:385
 msgid "the PS5 Vulkan driver did not start"
 msgstr "драйвер Vulkan на PS5 не запустился"
 
-#: port/app/emulator.cpp:433
+#: port/app/emulator.cpp:434
 msgid "PS5CEMU-HAR cannot write to {0}. Is the HEN loaded?"
 msgstr "PS5CEMU-HAR не может записывать в {0}. HEN загружен?"
 
-#: port/app/emulator.cpp:455
+#: port/app/emulator.cpp:456
 msgid "PS5CEMU-HAR cannot create the MLC folder {0}"
 msgstr "PS5CEMU-HAR не может создать папку MLC {0}"
 
 #. why a Wii U game did not start
-#: port/app/emulator.cpp:614
+#: port/app/emulator.cpp:615
 msgid "The game's base files were not found."
 msgstr "Базовые файлы игры не найдены."
 
-#: port/app/emulator.cpp:620
+#: port/app/emulator.cpp:621
 msgid "The game could not be mounted. Check that its files are still in the game files folder."
 msgstr "Не удалось смонтировать игру. Проверьте, что её файлы всё ещё в папке с играми."
 
-#: port/app/emulator.cpp:625 port/azahar/core.cpp:556
+#: port/app/emulator.cpp:626 port/azahar/core.cpp:556
 #, menu
 msgid "The game could not be started."
 msgstr "Не удалось запустить игру."
 
-#: port/app/emulator.cpp:634
+#: port/app/emulator.cpp:635
 msgid "This is not a Wii U game PS5CEMU-HAR can start."
 msgstr "Это не игра для Wii U, которую может запустить PS5CEMU-HAR."
 
-#: port/app/emulator.cpp:636
+#: port/app/emulator.cpp:637
 msgid "Its disc key is missing from /data/ps5cemu/keys.txt."
 msgstr "Ключа её диска нет в /data/ps5cemu/keys.txt."
 
-#: port/app/emulator.cpp:638
+#: port/app/emulator.cpp:639
 msgid "Its title.tik is missing."
 msgstr "Нет её файла title.tik."
 
-#: port/app/emulator.cpp:643
+#: port/app/emulator.cpp:644
 msgid "The executable could not be started."
 msgstr "Не удалось запустить исполняемый файл."
 
-#: port/app/emulator.cpp:656
+#: port/app/emulator.cpp:657
 msgid "The Vulkan renderer did not start: {0}"
 msgstr "Рендерер Vulkan не запустился: {0}"
 
 #. the PS5's notification as a Wii U game starts
-#: port/app/emulator.cpp:714
+#: port/app/emulator.cpp:715
 msgid "Touchpad click + Options: the in-game menu (screens, picture, volume, controls, the library)"
 msgstr "Нажатие сенсорной панели + OPTIONS: игровое меню (экраны, изображение, громкость, управление, библиотека)"
 
-#: port/app/emulator.cpp:870
+#: port/app/emulator.cpp:874
 msgid "PS5CEMU-HAR could not start itself again to show the library: start it again from the home screen."
 msgstr "PS5CEMU-HAR не удалось перезапуститься, чтобы показать библиотеку: запустите его снова с главного экрана."
 
@@ -636,273 +636,273 @@ msgid "Wrestling"
 msgstr "Рестлинг"
 
 #. the Wii U's controllers, by the names Nintendo gave them in the language
-#: port/app/ingame.cpp:139 port/frontend/actions.cpp:348
+#: port/app/ingame.cpp:145 port/frontend/actions.cpp:348
 #, menu
 msgid "Wii U GamePad"
 msgstr "Wii U GamePad"
 
-#: port/app/ingame.cpp:140 port/frontend/actions.cpp:349
+#: port/app/ingame.cpp:146 port/frontend/actions.cpp:349
 #, menu
 msgid "Wii U Pro Controller"
 msgstr "Wii U Pro Controller"
 
-#: port/app/ingame.cpp:141 port/frontend/actions.cpp:350
+#: port/app/ingame.cpp:147 port/frontend/actions.cpp:350
 #, menu
 msgid "Classic Controller"
 msgstr "Classic Controller"
 
-#: port/app/ingame.cpp:142 port/frontend/actions.cpp:351
+#: port/app/ingame.cpp:148 port/frontend/actions.cpp:351
 #, menu
 msgid "Wii Remote"
 msgstr "Пульт Wii Remote"
 
-#: port/app/ingame.cpp:143 port/frontend/actions.cpp:352
+#: port/app/ingame.cpp:149 port/frontend/actions.cpp:352
 #, menu
 msgid "Wii Remote + Nunchuk"
 msgstr "Wii Remote + Nunchuk"
 
-#: port/app/ingame.cpp:146 port/frontend/actions.cpp:355
+#: port/app/ingame.cpp:152 port/frontend/actions.cpp:355
 #, menu
 msgid "No controller"
 msgstr "Без контроллера"
 
 #. how a game's picture is scaled: the methods' names
-#: port/app/ingame.cpp:169
+#: port/app/ingame.cpp:175
 #, menu
 msgid "Bilinear"
 msgstr "Билинейный"
 
 #. how a game's picture is scaled: the methods' names
 #. texture filters: None, then the filters' own names
-#: port/app/ingame.cpp:169 port/app/ingame3ds.cpp:132 port/frontend/shell/settings.cpp:56 port/frontend/shell/settings.cpp:69
+#: port/app/ingame.cpp:175 port/app/ingame3ds.cpp:133 port/frontend/shell/settings.cpp:56 port/frontend/shell/settings.cpp:69
 #, menu
 msgid "Bicubic"
 msgstr "Бикубический"
 
 #. how a game's picture is scaled: the methods' names
-#: port/app/ingame.cpp:169 port/frontend/shell/settings.cpp:69
+#: port/app/ingame.cpp:175 port/frontend/shell/settings.cpp:69
 #, menu
 msgid "Bicubic Hermite"
 msgstr "Бикубический Эрмита"
 
 #. how a game's picture is scaled: the methods' names
-#: port/app/ingame.cpp:169 port/frontend/shell/settings.cpp:69
+#: port/app/ingame.cpp:175 port/frontend/shell/settings.cpp:69
 #, menu
 msgid "Nearest neighbour"
 msgstr "Ближайший сосед"
 
 #. how a game's picture is scaled: the methods' names
-#: port/app/ingame.cpp:169 port/frontend/shell/settings.cpp:69
+#: port/app/ingame.cpp:175 port/frontend/shell/settings.cpp:69
 #, menu
 msgid "AMD FSR 1"
 msgstr "AMD FSR 1"
 
-#: port/app/ingame.cpp:183 port/app/ingame.cpp:251 port/app/ingame.cpp:251 port/app/ingame3ds.cpp:464 port/app/remote_menu.h:28 port/frontend/shell/pages.cpp:597 port/frontend/shell/settings.cpp:383
+#: port/app/ingame.cpp:189 port/app/ingame.cpp:257 port/app/ingame.cpp:257 port/app/ingame3ds.cpp:465 port/app/remote_menu.h:28 port/frontend/shell/pages.cpp:597 port/frontend/shell/settings.cpp:383
 #, menu
 msgid "On"
 msgstr "Вкл."
 
-#: port/app/ingame.cpp:183 port/app/ingame.cpp:251 port/app/ingame.cpp:251 port/app/ingame.cpp:277 port/app/ingame3ds.cpp:464 port/app/remote_menu.h:28 port/frontend/shell/pages.cpp:597 port/frontend/shell/pages.cpp:605 port/frontend/shell/settings.cpp:70 port/frontend/shell/settings.cpp:383 port/ps5/display.h:43
+#: port/app/ingame.cpp:189 port/app/ingame.cpp:257 port/app/ingame.cpp:257 port/app/ingame.cpp:283 port/app/ingame3ds.cpp:465 port/app/remote_menu.h:28 port/frontend/shell/pages.cpp:597 port/frontend/shell/pages.cpp:605 port/frontend/shell/settings.cpp:70 port/frontend/shell/settings.cpp:383 port/ps5/display.h:43
 #, menu
 msgid "Off"
 msgstr "Выкл."
 
 #. the screens in the Wii U's menu: the TV's picture and the GamePad's
-#: port/app/ingame.cpp:185
+#: port/app/ingame.cpp:191
 #, menu
 msgid "TV"
 msgstr "ТВ"
 
 #. the screens in the Wii U's menu: the TV's picture and the GamePad's
-#: port/app/ingame.cpp:185
+#: port/app/ingame.cpp:191
 #, menu
 msgid "GamePad"
 msgstr "GamePad"
 
 #. the quick actions: big tiles at the top of the in-game menu, a word each
-#: port/app/ingame.cpp:186 port/app/ingame.cpp:329 port/app/ingame3ds.cpp:621 port/frontend/shell/settings.cpp:185
+#: port/app/ingame.cpp:192 port/app/ingame.cpp:335 port/app/ingame3ds.cpp:622 port/frontend/shell/settings.cpp:185
 #, menu
 msgid "Screens"
 msgstr "Экраны"
 
-#: port/app/ingame.cpp:186 port/app/ingame.cpp:192
+#: port/app/ingame.cpp:192 port/app/ingame.cpp:198
 #, menu
 msgid "Stretched"
 msgstr "Растянуто"
 
-#: port/app/ingame.cpp:186
+#: port/app/ingame.cpp:192
 #, menu
 msgid "Its shape"
 msgstr "Исходная форма"
 
-#: port/app/ingame.cpp:187
+#: port/app/ingame.cpp:193
 #, menu
 msgid "The TV's and the GamePad's pictures, and how they fill the screen."
 msgstr "Изображения ТВ и GamePad и то, как они заполняют экран."
 
 #. the 3DS's top and bottom screens
-#: port/app/ingame.cpp:188 port/app/ingame3ds.cpp:470
+#: port/app/ingame.cpp:194 port/app/ingame3ds.cpp:471
 #, menu
 msgid "Main screen"
 msgstr "Главный экран"
 
-#: port/app/ingame.cpp:189
+#: port/app/ingame.cpp:195
 #, menu
 msgid "Which picture fills the TV: the TV's or the GamePad's. In the game, touchpad click + L1 swaps them."
 msgstr "Какое изображение заполняет ТВ: телевизора или GamePad. В игре их меняет нажатие сенсорной панели + L1."
 
-#: port/app/ingame.cpp:190
+#: port/app/ingame.cpp:196
 #, menu
 msgid "TV in a corner"
 msgstr "ТВ в углу"
 
-#: port/app/ingame.cpp:190
+#: port/app/ingame.cpp:196
 #, menu
 msgid "GamePad in a corner"
 msgstr "GamePad в углу"
 
-#: port/app/ingame.cpp:191
+#: port/app/ingame.cpp:197
 #, menu
 msgid "The other screen, small in the bottom right corner. In the game, touchpad click + R1."
 msgstr "Второй экран, маленький, в правом нижнем углу. В игре: нажатие сенсорной панели + R1."
 
-#: port/app/ingame.cpp:192
+#: port/app/ingame.cpp:198
 #, menu
 msgid "Picture"
 msgstr "Изображение"
 
-#: port/app/ingame.cpp:192
+#: port/app/ingame.cpp:198
 #, menu
 msgid "Its own shape"
 msgstr "Исходная форма"
 
-#: port/app/ingame.cpp:193
+#: port/app/ingame.cpp:199
 #, menu
 msgid "Its own shape keeps the picture's proportions, with bars where they differ from the screen's; Stretched fills it."
 msgstr "Исходная форма сохраняет пропорции изображения, с полосами там, где они отличаются от пропорций экрана; «Растянуто» заполняет его целиком."
 
-#: port/app/ingame.cpp:195 port/app/ingame3ds.cpp:476 port/app/ingame3ds.cpp:485 port/frontend/shell/settings.cpp:183
+#: port/app/ingame.cpp:201 port/app/ingame3ds.cpp:477 port/app/ingame3ds.cpp:486 port/frontend/shell/settings.cpp:183
 #, menu
 msgid "Graphics"
 msgstr "Графика"
 
-#: port/app/ingame.cpp:196
+#: port/app/ingame.cpp:202
 #, menu
 msgid "Upscaling, Cemu's accuracy settings and the performance overlay. Kept for the next games."
 msgstr "Масштабирование, настройки точности Cemu и оверлей производительности. Сохраняются для следующих игр."
 
-#: port/app/ingame.cpp:197 port/frontend/shell/settings.cpp:451
+#: port/app/ingame.cpp:203 port/frontend/shell/settings.cpp:451
 #, menu
 msgid "Upscaling to 4K"
 msgstr "Масштабирование до 4K"
 
-#: port/app/ingame.cpp:198
+#: port/app/ingame.cpp:204
 #, menu
 msgid "How the picture is scaled to the screen: Bicubic is sharp, Hermite softer, Bilinear softer still."
 msgstr "Как изображение масштабируется на экран: бикубический — чёткий, Эрмита — мягче, билинейный — ещё мягче."
 
-#: port/app/ingame.cpp:199
+#: port/app/ingame.cpp:205
 #, menu
 msgid "Accurate barriers"
 msgstr "Точные барьеры"
 
-#: port/app/ingame.cpp:200
+#: port/app/ingame.cpp:206
 #, menu
 msgid "Off can raise the frame rate, but some games then flicker or show wrong shadows. It changes at once."
 msgstr "Если выключить, частота кадров может вырасти, но некоторые игры начнут мерцать или показывать неверные тени. Действует сразу."
 
-#: port/app/ingame.cpp:201 port/frontend/shell/settings.cpp:474 port/frontend/shell/settings.cpp:495
+#: port/app/ingame.cpp:207 port/frontend/shell/settings.cpp:474 port/frontend/shell/settings.cpp:495
 #, menu
 msgid "Async shader compile"
 msgstr "Асинхронная компиляция шейдеров"
 
-#: port/app/ingame.cpp:202
+#: port/app/ingame.cpp:208
 #, menu
 msgid "On, new shaders build while the game carries on: no stutter, but things may be missing for a moment."
 msgstr "Если включено, новые шейдеры собираются, пока игра идёт: без подтормаживаний, но что-то может ненадолго пропасть."
 
-#: port/app/ingame.cpp:203 port/frontend/shell/settings.cpp:462
+#: port/app/ingame.cpp:209 port/frontend/shell/settings.cpp:462
 #, menu
 msgid "Frame pacing"
 msgstr "Ровная подача кадров"
 
-#: port/app/ingame.cpp:204
+#: port/app/ingame.cpp:210
 #, menu
 msgid "Holds the game to an even rate: 60 fps for 4K at 120 Hz, 30 for 8K at 60 Hz. Off shows each frame when it is done."
 msgstr "Держит игру в ровном темпе: 60 к/с для 4K при 120 Гц, 30 для 8K при 60 Гц. Если выключено, каждый кадр показывается, как только готов."
 
-#: port/app/ingame.cpp:205 port/app/ingame3ds.cpp:480 port/app/ingame3ds.cpp:491 port/frontend/shell/settings.cpp:468
+#: port/app/ingame.cpp:211 port/app/ingame3ds.cpp:481 port/app/ingame3ds.cpp:492 port/frontend/shell/settings.cpp:468
 #, menu
 msgid "Performance overlay"
 msgstr "Оверлей производительности"
 
-#: port/app/ingame.cpp:206
+#: port/app/ingame.cpp:212
 #, menu
 msgid "Frames per second, CPU and memory use in the top left corner, as Cemu shows them."
 msgstr "Кадры в секунду, загрузка ЦП и памяти в левом верхнем углу, как показывает Cemu."
 
-#: port/app/ingame.cpp:207 port/frontend/shell/settings.cpp:471
+#: port/app/ingame.cpp:213 port/frontend/shell/settings.cpp:471
 #, menu
 msgid "Shader notices"
 msgstr "Уведомления о шейдерах"
 
-#: port/app/ingame.cpp:208
+#: port/app/ingame.cpp:214
 #, menu
 msgid "Cemu's notes in a corner while the game builds shaders. Off hides them; they are built either way."
 msgstr "Сообщения Cemu в углу, пока игра собирает шейдеры. «Выкл.» скрывает их; шейдеры собираются в любом случае."
 
-#: port/app/ingame.cpp:221 port/app/ingame.cpp:251
+#: port/app/ingame.cpp:227 port/app/ingame.cpp:257
 #, menu
 msgid "{0} (next start)"
 msgstr "{0} (при следующем запуске)"
 
-#: port/app/ingame.cpp:222
+#: port/app/ingame.cpp:228
 #, menu
 msgid "This pack replaces textures: the game shows the change when it starts again."
 msgstr "Этот пакет заменяет текстуры: игра покажет изменение при следующем запуске."
 
-#: port/app/ingame.cpp:223
+#: port/app/ingame.cpp:229
 #, menu
 msgid "Cross turns it on or off; the game shows it at once."
 msgstr "Крестик включает или выключает его; игра показывает это сразу."
 
-#: port/app/ingame.cpp:231 port/frontend/shell/pages.cpp:281 port/frontend/shell/pages.cpp:370
+#: port/app/ingame.cpp:237 port/frontend/shell/pages.cpp:281 port/frontend/shell/pages.cpp:370
 #, menu
 msgid "Preset"
 msgstr "Пресет"
 
-#: port/app/ingame.cpp:233
+#: port/app/ingame.cpp:239
 #, menu
 msgid "Left and Right choose another; the game shows it at once."
 msgstr "Влево и вправо выбирают другой; игра показывает его сразу."
 
-#: port/app/ingame.cpp:237
+#: port/app/ingame.cpp:243
 #, menu
 msgid "None for this game"
 msgstr "Для этой игры нет"
 
-#: port/app/ingame.cpp:237
+#: port/app/ingame.cpp:243
 #, menu
 msgid "Reading the packs…"
 msgstr "Чтение пакетов…"
 
-#: port/app/ingame.cpp:238
+#: port/app/ingame.cpp:244
 #, menu
 msgid "The community graphic packs have none for this game."
 msgstr "В графических пакетах сообщества нет ни одного для этой игры."
 
-#: port/app/ingame.cpp:240 port/app/ingame.cpp:330 port/frontend/shell/classic.cpp:321 port/frontend/shell/classic.cpp:517 port/frontend/shell/eden.cpp:480 port/frontend/shell/eden.cpp:1375 port/frontend/shell/hub.cpp:231 port/frontend/shell/pages.cpp:305 port/frontend/shell/shell.cpp:1619
+#: port/app/ingame.cpp:246 port/app/ingame.cpp:336 port/frontend/shell/classic.cpp:321 port/frontend/shell/classic.cpp:517 port/frontend/shell/eden.cpp:480 port/frontend/shell/eden.cpp:1375 port/frontend/shell/hub.cpp:231 port/frontend/shell/pages.cpp:305 port/frontend/shell/shell.cpp:1615
 #, menu
 msgid "Graphic packs"
 msgstr "Графические пакеты"
 
 #. amiibo is Nintendo's name for its figures, as it writes it in the language
-#: port/app/ingame.cpp:240 port/app/ingame.cpp:284 port/app/ingame.cpp:330 port/app/ingame3ds.cpp:456 port/frontend/shell/classic.cpp:490
+#: port/app/ingame.cpp:246 port/app/ingame.cpp:290 port/app/ingame.cpp:336 port/app/ingame3ds.cpp:457 port/frontend/shell/classic.cpp:490
 #, menu
 msgid "None"
 msgstr "Нет"
 
-#: port/app/ingame.cpp:240 port/app/ingame.cpp:277 port/frontend/shell/classic.cpp:518 port/frontend/shell/eden.cpp:1375 port/frontend/shell/experiments.cpp:1049 port/frontend/shell/experiments.cpp:1242
+#: port/app/ingame.cpp:246 port/app/ingame.cpp:283 port/frontend/shell/classic.cpp:518 port/frontend/shell/eden.cpp:1375 port/frontend/shell/experiments.cpp:1049 port/frontend/shell/experiments.cpp:1242
 #, menu
 msgid "{0} on"
 msgid_plural "{0} on"
@@ -910,602 +910,602 @@ msgstr[0] "{0} включён"
 msgstr[1] "{0} включено"
 msgstr[2] "{0} включено"
 
-#: port/app/ingame.cpp:241
+#: port/app/ingame.cpp:247
 #, menu
 msgid "The game's community graphic packs: resolution, frame rate and mods, as Cemu's Graphic Packs window has them."
 msgstr "Графические пакеты сообщества для игры: разрешение, частота кадров и моды, как в окне Graphic Packs в Cemu."
 
-#: port/app/ingame.cpp:252
+#: port/app/ingame.cpp:258
 #, menu
 msgid "The game sees the change when it starts again: the portal is plugged in as a game starts."
 msgstr "Игра увидит изменение при следующем запуске: портал подключается при запуске игры."
 
-#: port/app/ingame.cpp:253
+#: port/app/ingame.cpp:259
 #, menu
 msgid "Plugged in as a game starts, as in Cemu. Its figures are below while it is on."
 msgstr "Подключается при запуске игры, как в Cemu. Пока он включён, его фигурки ниже."
 
-#: port/app/ingame.cpp:258 port/app/ingame3ds.cpp:595
+#: port/app/ingame.cpp:264 port/app/ingame3ds.cpp:596
 #, menu
 msgid "Empty"
 msgstr "Пусто"
 
-#: port/app/ingame.cpp:267
+#: port/app/ingame.cpp:273
 #, menu
 msgid "{0} (Cross to put on)"
 msgstr "{0} (Крестик — поставить)"
 
 #. {0} is a folder of figure dumps
-#: port/app/ingame.cpp:269
+#: port/app/ingame.cpp:275
 #, menu
 msgid "Put figure dumps in {0} to put them on here."
 msgstr "Положите дампы фигурок в {0}, чтобы ставить их сюда."
 
-#: port/app/ingame.cpp:270
+#: port/app/ingame.cpp:276
 #, menu
 msgid "Left and Right choose a figure, Cross puts it on; Empty takes the one there off."
 msgstr "Влево и Вправо выбирают фигурку, Крестик ставит её; «Пусто» убирает стоящую там."
 
-#: port/app/ingame.cpp:275
+#: port/app/ingame.cpp:281
 #, menu
 msgid "The last figure could not be put on."
 msgstr "Не удалось поставить последнюю фигурку."
 
-#: port/app/ingame.cpp:277 port/frontend/shell/settings.cpp:191
+#: port/app/ingame.cpp:283 port/frontend/shell/settings.cpp:191
 #, menu
 msgid "USB devices"
 msgstr "USB-устройства"
 
-#: port/app/ingame.cpp:278
+#: port/app/ingame.cpp:284
 #, menu
 msgid "Skylanders, Disney Infinity and LEGO Dimensions figures on Cemu's emulated portals, as amiibo are scanned."
 msgstr "Фигурки Skylanders, Disney Infinity и LEGO Dimensions на эмулируемых порталах Cemu — так же, как сканируются amiibo."
 
-#: port/app/ingame.cpp:280 port/app/ingame3ds.cpp:509
+#: port/app/ingame.cpp:286 port/app/ingame3ds.cpp:510
 #, menu
 msgid "Volume"
 msgstr "Громкость"
 
-#: port/app/ingame.cpp:280 port/app/ingame3ds.cpp:509
+#: port/app/ingame.cpp:286 port/app/ingame3ds.cpp:510
 #, menu
 msgid "The game's sound. Left and Right change it by 10%."
 msgstr "Звук игры. Влево и вправо меняют его на 10 %."
 
 #. amiibo is Nintendo's name for its figures, as it writes it in the language
-#: port/app/ingame.cpp:284 port/app/ingame.cpp:330 port/app/ingame3ds.cpp:555 port/app/ingame3ds.cpp:556
+#: port/app/ingame.cpp:290 port/app/ingame.cpp:336 port/app/ingame3ds.cpp:556 port/app/ingame3ds.cpp:557
 #, menu
 msgid "Amiibo"
 msgstr "amiibo"
 
-#: port/app/ingame.cpp:286 port/app/ingame3ds.cpp:557
+#: port/app/ingame.cpp:292 port/app/ingame3ds.cpp:558
 #, menu
 msgid "Put amiibo dumps (.bin) in /data/ps5cemu/amiibo to scan them here."
 msgstr "Положите дампы amiibo (.bin) в /data/ps5cemu/amiibo, чтобы сканировать их здесь."
 
-#: port/app/ingame.cpp:287
+#: port/app/ingame.cpp:293
 #, menu
 msgid "Left and Right choose an amiibo dump; Cross touches it to the GamePad when the game asks for one."
 msgstr "Влево и вправо выбирают дамп amiibo; Крестик прикладывает его к GamePad, когда игра просит."
 
 #. the DS's lid, closed or open
-#: port/app/ingame.cpp:288 port/app/ingame3ds.cpp:566 port/app/ingame3ds.cpp:577 port/frontend/shell/pages.cpp:812 port/frontend/shell/settings.cpp:187
+#: port/app/ingame.cpp:294 port/app/ingame3ds.cpp:567 port/app/ingame3ds.cpp:578 port/frontend/shell/pages.cpp:812 port/frontend/shell/settings.cpp:187
 #, menu
 msgid "Controls"
 msgstr "Управление"
 
-#: port/app/ingame.cpp:289
+#: port/app/ingame.cpp:295
 #, menu
 msgid "Each player's controller, motion, vibration, deadzones and A and B."
 msgstr "Контроллер каждого игрока, движение, вибрация, мёртвые зоны, A и B."
 
-#: port/app/ingame.cpp:290
+#: port/app/ingame.cpp:296
 #, menu
 msgid "Player"
 msgstr "Игрок"
 
-#: port/app/ingame.cpp:290
+#: port/app/ingame.cpp:296
 #, menu
 msgid "{0} (no DualSense)"
 msgstr "{0} (нет DualSense)"
 
-#: port/app/ingame.cpp:291
+#: port/app/ingame.cpp:297
 #, menu
 msgid "Whose controller the settings below are: Left and Right choose the player."
 msgstr "Чьему контроллеру принадлежат настройки ниже: влево и вправо выбирают игрока."
 
-#: port/app/ingame.cpp:292 port/frontend/shell/pages.cpp:451 port/frontend/shell/pages.cpp:489 port/frontend/shell/pages.cpp:596
+#: port/app/ingame.cpp:298 port/frontend/shell/pages.cpp:451 port/frontend/shell/pages.cpp:489 port/frontend/shell/pages.cpp:596
 #, menu
 msgid "Emulated controller"
 msgstr "Эмулируемый контроллер"
 
-#: port/app/ingame.cpp:293
+#: port/app/ingame.cpp:299
 #, menu
 msgid "What the game sees in this player's hands. Most games want the GamePad for player 1."
 msgstr "Что игра видит в руках этого игрока. Большинству игр нужен GamePad для игрока 1."
 
-#: port/app/ingame.cpp:294 port/app/ingame3ds.cpp:578 port/frontend/shell/pages.cpp:451 port/frontend/shell/pages.cpp:597 port/frontend/shell/settings.cpp:599
+#: port/app/ingame.cpp:300 port/app/ingame3ds.cpp:579 port/frontend/shell/pages.cpp:451 port/frontend/shell/pages.cpp:597 port/frontend/shell/settings.cpp:599
 #, menu
 msgid "Motion controls"
 msgstr "Управление движением"
 
-#: port/app/ingame.cpp:294 port/frontend/shell/pages.cpp:597
+#: port/app/ingame.cpp:300 port/frontend/shell/pages.cpp:597
 #, menu
 msgid "None on this one"
 msgstr "У этого нет"
 
-#: port/app/ingame.cpp:295
+#: port/app/ingame.cpp:301
 #, menu
 msgid "The DualSense's gyroscope and accelerometer, for the games that aim or steer by tilting."
 msgstr "Гироскоп и акселерометр DualSense — для игр, где целятся или рулят наклоном."
 
-#: port/app/ingame.cpp:296 port/frontend/shell/pages.cpp:451 port/frontend/shell/pages.cpp:605 port/frontend/shell/settings.cpp:563
+#: port/app/ingame.cpp:302 port/frontend/shell/pages.cpp:451 port/frontend/shell/pages.cpp:605 port/frontend/shell/settings.cpp:563
 #, menu
 msgid "Vibration"
 msgstr "Вибрация"
 
-#: port/app/ingame.cpp:297
+#: port/app/ingame.cpp:303
 #, menu
 msgid "How strongly the DualSense rumbles. Left and Right change it by 10%."
 msgstr "Насколько сильно вибрирует DualSense. Влево и вправо меняют её на 10 %."
 
-#: port/app/ingame.cpp:298 port/frontend/shell/pages.cpp:452 port/frontend/shell/pages.cpp:608
+#: port/app/ingame.cpp:304 port/frontend/shell/pages.cpp:452 port/frontend/shell/pages.cpp:608
 #, menu
 msgid "Left stick deadzone"
 msgstr "Мёртвая зона левого стика"
 
-#: port/app/ingame.cpp:299
+#: port/app/ingame.cpp:305
 #, menu
 msgid "How far the left stick moves before the game sees it. Raise it if a character drifts."
 msgstr "Насколько сдвигается левый стик, прежде чем игра это заметит. Увеличьте, если персонаж идёт сам."
 
-#: port/app/ingame.cpp:300 port/frontend/shell/pages.cpp:452 port/frontend/shell/pages.cpp:611
+#: port/app/ingame.cpp:306 port/frontend/shell/pages.cpp:452 port/frontend/shell/pages.cpp:611
 #, menu
 msgid "Right stick deadzone"
 msgstr "Мёртвая зона правого стика"
 
-#: port/app/ingame.cpp:301
+#: port/app/ingame.cpp:307
 #, menu
 msgid "How far the right stick moves before the game sees it. Raise it if the camera drifts."
 msgstr "Насколько сдвигается правый стик, прежде чем игра это заметит. Увеличьте, если камера плывёт сама."
 
-#: port/app/ingame.cpp:302 port/app/ingame3ds.cpp:572 port/app/ingame3ds.cpp:582 port/frontend/shell/pages.cpp:452 port/frontend/shell/pages.cpp:617 port/frontend/shell/settings.cpp:576 port/frontend/shell/welcome.cpp:58
+#: port/app/ingame.cpp:308 port/app/ingame3ds.cpp:573 port/app/ingame3ds.cpp:583 port/frontend/shell/pages.cpp:452 port/frontend/shell/pages.cpp:617 port/frontend/shell/settings.cpp:576 port/frontend/shell/welcome.cpp:58
 #, menu
 msgid "A and B"
 msgstr "A и B"
 
-#: port/app/ingame.cpp:302 port/app/ingame3ds.cpp:563 port/frontend/shell/pages.cpp:619 port/frontend/shell/settings.cpp:576 port/frontend/shell/welcome.cpp:59
+#: port/app/ingame.cpp:308 port/app/ingame3ds.cpp:564 port/frontend/shell/pages.cpp:619 port/frontend/shell/settings.cpp:576 port/frontend/shell/welcome.cpp:59
 #, menu
 msgid "A on Circle"
 msgstr "A на Кружке"
 
-#: port/app/ingame.cpp:302 port/app/ingame3ds.cpp:563 port/frontend/shell/pages.cpp:619 port/frontend/shell/settings.cpp:576 port/frontend/shell/welcome.cpp:59
+#: port/app/ingame.cpp:308 port/app/ingame3ds.cpp:564 port/frontend/shell/pages.cpp:619 port/frontend/shell/settings.cpp:576 port/frontend/shell/welcome.cpp:59
 #, menu
 msgid "A on Cross"
 msgstr "A на Крестике"
 
-#: port/app/ingame.cpp:303
+#: port/app/ingame.cpp:309
 #, menu
 msgid "A on Circle as on the Wii U, or on Cross, with X and Y swapped to match. Every other button: Settings > Controls in the launcher."
 msgstr "A на Кружке, как на Wii U, или на Крестике, а X и Y меняются местами соответственно. Остальные кнопки: Настройки > Управление в лаунчере."
 
-#: port/app/ingame.cpp:304 port/frontend/shell/pages.cpp:452 port/frontend/shell/pages.cpp:627 port/frontend/shell/welcome.cpp:87
+#: port/app/ingame.cpp:310 port/frontend/shell/pages.cpp:452 port/frontend/shell/pages.cpp:627 port/frontend/shell/welcome.cpp:87
 #, menu
 msgid "Touchpad click"
 msgstr "Нажатие сенсорной панели"
 
 #. what a Wii U player's touchpad click does (as Settings > Controls > Player names them)
-#: port/app/ingame.cpp:305 port/frontend/shell/pages.cpp:54 port/frontend/shell/welcome.cpp:26
+#: port/app/ingame.cpp:311 port/frontend/shell/pages.cpp:54 port/frontend/shell/welcome.cpp:26
 #, menu
 msgid "Touches the screen"
 msgstr "Касается экрана"
 
 #. what a Wii U player's touchpad click does (as Settings > Controls > Player names them)
-#: port/app/ingame.cpp:306 port/frontend/shell/pages.cpp:54 port/frontend/shell/welcome.cpp:26
+#: port/app/ingame.cpp:312 port/frontend/shell/pages.cpp:54 port/frontend/shell/welcome.cpp:26
 #, menu
 msgid "Presses a button"
 msgstr "Нажимает кнопку"
 
-#: port/app/ingame.cpp:306 port/frontend/shell/pages.cpp:628
+#: port/app/ingame.cpp:312 port/frontend/shell/pages.cpp:628
 #, menu
 msgid "{0}: {1}"
 msgstr "{0}: {1}"
 
 #. the languages the emulated 3DS can be set to
 #. what a Wii U player's touchpad click does (as Settings > Controls > Player names them)
-#: port/app/ingame.cpp:306 port/frontend/shell/pages.cpp:54 port/frontend/shell/settings.cpp:45 port/frontend/shell/settings.cpp:48 port/frontend/shell/welcome.cpp:26
+#: port/app/ingame.cpp:312 port/frontend/shell/pages.cpp:54 port/frontend/shell/settings.cpp:45 port/frontend/shell/settings.cpp:48 port/frontend/shell/welcome.cpp:26
 #, menu
 msgid "Automatic"
 msgstr "Автоматически"
 
-#: port/app/ingame.cpp:306 port/frontend/shell/pages.cpp:628
+#: port/app/ingame.cpp:312 port/frontend/shell/pages.cpp:628
 #, menu
 msgid "a button"
 msgstr "кнопка"
 
-#: port/app/ingame.cpp:306 port/frontend/shell/pages.cpp:628
+#: port/app/ingame.cpp:312 port/frontend/shell/pages.cpp:628
 #, menu
 msgid "a touch"
 msgstr "касание"
 
-#: port/app/ingame.cpp:308
+#: port/app/ingame.cpp:314
 #, menu
 msgid "Touches the GamePad's screen, or presses the button set to Touchpad click (- if none is set). The shortcuts still work."
 msgstr "Касается экрана GamePad или нажимает кнопку, назначенную на «Нажатие сенсорной панели» (- если такой нет). Сочетания клавиш продолжают работать."
 
 #. the remote touch screen's row: which screen a phone or a tablet shows
-#: port/app/ingame.cpp:311 port/frontend/shell/settings.cpp:627
+#: port/app/ingame.cpp:317 port/frontend/shell/settings.cpp:627
 #, menu
 msgid "The GamePad's screen"
 msgstr "Экран GamePad"
 
-#: port/app/ingame.cpp:314 port/app/ingame3ds.cpp:588
+#: port/app/ingame.cpp:320 port/app/ingame3ds.cpp:589
 #, menu
 msgid "Quit to the home screen"
 msgstr "Выйти на главный экран"
 
-#: port/app/ingame.cpp:315 port/app/ingame3ds.cpp:589
+#: port/app/ingame.cpp:321 port/app/ingame3ds.cpp:590
 #, menu
 msgid "Leaves the game and closes PS5CEMU-HAR, as its home screen tile asks. What you have not saved in the game is lost, so Cross is held."
 msgstr "Выходит из игры и закрывает PS5CEMU-HAR, как задано плиткой игры на главном экране. Несохранённое в игре теряется, поэтому Крестик нужно удерживать."
 
-#: port/app/ingame.cpp:316 port/app/ingame3ds.cpp:590
+#: port/app/ingame.cpp:322 port/app/ingame3ds.cpp:591
 #, menu
 msgid "Quit to the library"
 msgstr "Выйти в библиотеку"
 
-#: port/app/ingame.cpp:317 port/app/ingame3ds.cpp:591
+#: port/app/ingame.cpp:323 port/app/ingame3ds.cpp:592
 #, menu
 msgid "Leaves the game for the library. What you have not saved in the game is lost, so Cross is held."
 msgstr "Выходит из игры в библиотеку. Несохранённое в игре теряется, поэтому Крестик нужно удерживать."
 
 #. the quick actions: big tiles at the top of the in-game menu, a word each
 #. the quick actions: big tiles at the top of the in-game menu, a word or two each
-#: port/app/ingame.cpp:329 port/app/ingame3ds.cpp:618
+#: port/app/ingame.cpp:335 port/app/ingame3ds.cpp:619
 #, menu
 msgid "Resume"
 msgstr "Продолжить"
 
 #. the quick actions: big tiles at the top of the in-game menu, a word each
-#: port/app/ingame.cpp:329
+#: port/app/ingame.cpp:335
 #, menu
 msgid "GamePad main"
 msgstr "GamePad крупно"
 
 #. the quick actions: big tiles at the top of the in-game menu, a word each
-#: port/app/ingame.cpp:329
+#: port/app/ingame.cpp:335
 #, menu
 msgid "TV main"
 msgstr "ТВ крупно"
 
-#: port/app/ingame.cpp:330
+#: port/app/ingame.cpp:336
 #, menu
 msgid "Scan"
 msgstr "Сканировать"
 
 #. {0} is an amiibo dump's file name
-#: port/app/ingame.cpp:390 port/azahar/core.cpp:269
+#: port/app/ingame.cpp:396 port/azahar/core.cpp:269
 #, menu
 msgid "Scanned {0}"
 msgstr "{0} отсканирован"
 
 #. {0} is an amiibo dump's file name
-#: port/app/ingame.cpp:390
+#: port/app/ingame.cpp:396
 #, menu
 msgid "Not scanned (error {0})"
 msgstr "Не отсканирован (ошибка {0})"
 
 #. the in-game menu's badge: the game goes on behind the menu (Cemu cannot pause it)
-#: port/app/ingame.cpp:542
+#: port/app/ingame.cpp:556
 #, menu
 msgid "Running"
 msgstr "Работает"
 
-#: port/app/ingame.cpp:552 port/app/ingame3ds.cpp:764 port/frontend/shell/eden.cpp:488 port/frontend/shell/eden.cpp:497 port/frontend/shell/shares.cpp:524 port/frontend/shell/shell.cpp:1228 port/frontend/shell/shell.cpp:1232 port/frontend/shell/shell.cpp:1266 port/frontend/shell/shell.cpp:1282 port/frontend/shell/shell.cpp:1290 port/frontend/shell/shell.cpp:1298 port/frontend/shell/shell.cpp:1301 port/frontend/shell/shell.cpp:2170
+#: port/app/ingame.cpp:566 port/app/ingame3ds.cpp:765 port/frontend/shell/eden.cpp:488 port/frontend/shell/eden.cpp:497 port/frontend/shell/shares.cpp:524 port/frontend/shell/shell.cpp:1224 port/frontend/shell/shell.cpp:1228 port/frontend/shell/shell.cpp:1262 port/frontend/shell/shell.cpp:1278 port/frontend/shell/shell.cpp:1286 port/frontend/shell/shell.cpp:1294 port/frontend/shell/shell.cpp:1297 port/frontend/shell/shell.cpp:2201
 #, menu
 msgid "Choose"
 msgstr "Выбрать"
 
-#: port/app/ingame.cpp:552 port/app/ingame3ds.cpp:764 port/frontend/shell/shares.cpp:520 port/frontend/shell/shares.cpp:523 port/frontend/shell/shell.cpp:1248 port/frontend/shell/shell.cpp:1291 port/frontend/shell/shell.cpp:1295 port/frontend/shell/shell.cpp:1298 port/frontend/shell/shell.cpp:1301 port/frontend/shell/shell.cpp:1312
+#: port/app/ingame.cpp:566 port/app/ingame3ds.cpp:765 port/frontend/shell/shares.cpp:520 port/frontend/shell/shares.cpp:523 port/frontend/shell/shell.cpp:1244 port/frontend/shell/shell.cpp:1287 port/frontend/shell/shell.cpp:1291 port/frontend/shell/shell.cpp:1294 port/frontend/shell/shell.cpp:1297 port/frontend/shell/shell.cpp:1308
 #, menu
 msgid "Change"
 msgstr "Изменить"
 
-#: port/app/ingame.cpp:552 port/app/ingame3ds.cpp:764
+#: port/app/ingame.cpp:566 port/app/ingame3ds.cpp:765
 #, menu
 msgid "Back to the game"
 msgstr "Вернуться в игру"
 
-#: port/app/ingame.cpp:552 port/app/ingame3ds.cpp:764 port/frontend/shell/eden.cpp:477 port/frontend/shell/eden.cpp:504 port/frontend/shell/eden.cpp:506 port/frontend/shell/eden.cpp:509 port/frontend/shell/installs.cpp:329 port/frontend/shell/shares.cpp:520 port/frontend/shell/shares.cpp:526 port/frontend/shell/shell.cpp:1249 port/frontend/shell/shell.cpp:1258 port/frontend/shell/shell.cpp:1283 port/frontend/shell/shell.cpp:1290 port/frontend/shell/shell.cpp:1291 port/frontend/shell/shell.cpp:1295 port/frontend/shell/shell.cpp:1299 port/frontend/shell/shell.cpp:1301 port/frontend/shell/shell.cpp:1305 port/frontend/shell/shell.cpp:1309 port/frontend/shell/shell.cpp:1314 port/frontend/shell/shell.cpp:1315
+#: port/app/ingame.cpp:566 port/app/ingame3ds.cpp:765 port/frontend/shell/eden.cpp:477 port/frontend/shell/eden.cpp:504 port/frontend/shell/eden.cpp:506 port/frontend/shell/eden.cpp:509 port/frontend/shell/installs.cpp:329 port/frontend/shell/shares.cpp:520 port/frontend/shell/shares.cpp:526 port/frontend/shell/shell.cpp:1245 port/frontend/shell/shell.cpp:1254 port/frontend/shell/shell.cpp:1279 port/frontend/shell/shell.cpp:1286 port/frontend/shell/shell.cpp:1287 port/frontend/shell/shell.cpp:1291 port/frontend/shell/shell.cpp:1295 port/frontend/shell/shell.cpp:1297 port/frontend/shell/shell.cpp:1301 port/frontend/shell/shell.cpp:1305 port/frontend/shell/shell.cpp:1310 port/frontend/shell/shell.cpp:1311
 #, menu
 msgid "Back"
 msgstr "Назад"
 
 #. the in-game menu's top: the Wii U account the game runs on ({0}: its name)
-#: port/app/ingame.cpp:596
+#: port/app/ingame.cpp:610
 #, menu
 msgid "{0}'s saves"
 msgstr "Сохранения: {0}"
 
 #. the 3DS's screen layouts
-#: port/app/ingame3ds.cpp:130 port/frontend/shell/settings.cpp:54
+#: port/app/ingame3ds.cpp:131 port/frontend/shell/settings.cpp:54
 #, menu
 msgid "Top above bottom"
 msgstr "Верхний над нижним"
 
 #. the 3DS's screen layouts
-#: port/app/ingame3ds.cpp:130 port/frontend/shell/settings.cpp:54
+#: port/app/ingame3ds.cpp:131 port/frontend/shell/settings.cpp:54
 #, menu
 msgid "Top screen only"
 msgstr "Только верхний экран"
 
 #. the 3DS's screen layouts
-#: port/app/ingame3ds.cpp:130 port/frontend/shell/settings.cpp:54
+#: port/app/ingame3ds.cpp:131 port/frontend/shell/settings.cpp:54
 #, menu
 msgid "Large top screen"
 msgstr "Большой верхний экран"
 
 #. the 3DS's screen layouts
-#: port/app/ingame3ds.cpp:130 port/frontend/shell/settings.cpp:54
+#: port/app/ingame3ds.cpp:131 port/frontend/shell/settings.cpp:54
 #, menu
 msgid "Side by side"
 msgstr "Рядом"
 
 #. texture filters: None, then the filters' own names
-#: port/app/ingame3ds.cpp:132 port/frontend/shell/settings.cpp:56
+#: port/app/ingame3ds.cpp:133 port/frontend/shell/settings.cpp:56
 #, menu
 msgctxt "texture filter"
 msgid "None"
 msgstr "Нет"
 
-#: port/app/ingame3ds.cpp:465
+#: port/app/ingame3ds.cpp:466
 #, menu
 msgid "Screens and border"
 msgstr "Экраны и рамка"
 
-#: port/app/ingame3ds.cpp:466
+#: port/app/ingame3ds.cpp:467
 #, menu
 msgid "The screens' layout, which one is the main one, and the border."
 msgstr "Расположение экранов, какой из них главный, и рамка."
 
-#: port/app/ingame3ds.cpp:467
+#: port/app/ingame3ds.cpp:468
 #, menu
 msgid "Layout"
 msgstr "Расположение"
 
-#: port/app/ingame3ds.cpp:468
+#: port/app/ingame3ds.cpp:469
 #, menu
 msgid "How the two screens share the TV. In the game, touchpad click + R1 goes to the next."
 msgstr "Как два экрана делят ТВ. В игре нажатие сенсорной панели + R1 переключает на следующее."
 
 #. the 3DS's top and bottom screens
-#: port/app/ingame3ds.cpp:470
+#: port/app/ingame3ds.cpp:471
 #, menu
 msgid "Bottom"
 msgstr "Нижний"
 
 #. the 3DS's top and bottom screens
-#: port/app/ingame3ds.cpp:470
+#: port/app/ingame3ds.cpp:471
 #, menu
 msgid "Top"
 msgstr "Верхний"
 
-#: port/app/ingame3ds.cpp:471
+#: port/app/ingame3ds.cpp:472
 #, menu
 msgid "Which screen takes the top screen's place. In the game, touchpad click + L1 swaps them."
 msgstr "Какой экран занимает место верхнего. В игре их меняет нажатие сенсорной панели + L1."
 
-#: port/app/ingame3ds.cpp:472 port/frontend/shell/settings.cpp:533
+#: port/app/ingame3ds.cpp:473 port/frontend/shell/settings.cpp:533
 #, menu
 msgid "Border"
 msgstr "Рамка"
 
-#: port/app/ingame3ds.cpp:473
+#: port/app/ingame3ds.cpp:474
 #, menu
 msgid "Artwork around the screens, never over them. Also in the launcher's Settings > Screens."
 msgstr "Оформление вокруг экранов, никогда не поверх них. Также в Настройки > Экраны в лаунчере."
 
-#: port/app/ingame3ds.cpp:476
+#: port/app/ingame3ds.cpp:477
 #, menu
 msgid "The screen filter and the performance overlay."
 msgstr "Фильтр экрана и оверлей производительности."
 
-#: port/app/ingame3ds.cpp:477 port/frontend/shell/settings.cpp:513
+#: port/app/ingame3ds.cpp:478 port/frontend/shell/settings.cpp:513
 #, menu
 msgid "Screen filter"
 msgstr "Фильтр экрана"
 
-#: port/app/ingame3ds.cpp:478
+#: port/app/ingame3ds.cpp:479
 #, menu
 msgid "How the DS's 256 x 192 screens are scaled to the TV. Sharp keeps every pixel square and even; Smooth blurs them together; Square pixels takes the nearest, uneven at most sizes."
 msgstr "Как экраны DS размером 256 x 192 масштабируются на телевизор. «Чёткий» сохраняет каждый пиксель квадратным и одинаковым; «Мягкий» размывает их между собой; «Квадратные пиксели» берёт ближайший, неравномерно на большинстве размеров."
 
-#: port/app/ingame3ds.cpp:481 port/app/ingame3ds.cpp:492
+#: port/app/ingame3ds.cpp:482 port/app/ingame3ds.cpp:493
 #, menu
 msgid "The frame rate and the emulation's speed, in the top left corner."
 msgstr "Частота кадров и скорость эмуляции, в левом верхнем углу."
 
-#: port/app/ingame3ds.cpp:486
+#: port/app/ingame3ds.cpp:487
 #, menu
 msgid "Internal resolution, texture filter and the performance overlay."
 msgstr "Внутреннее разрешение, фильтр текстур и оверлей производительности."
 
-#: port/app/ingame3ds.cpp:487 port/frontend/shell/settings.cpp:481
+#: port/app/ingame3ds.cpp:488 port/frontend/shell/settings.cpp:481
 #, menu
 msgid "Internal resolution"
 msgstr "Внутреннее разрешение"
 
-#: port/app/ingame3ds.cpp:488
+#: port/app/ingame3ds.cpp:489
 #, menu
 msgid "How large the 3D scenes are drawn before they are scaled to the TV. Higher is sharper and asks more of the GPU."
 msgstr "В каком размере рисуются 3D-сцены, прежде чем масштабироваться на ТВ. Выше — чётче и тяжелее для GPU."
 
-#: port/app/ingame3ds.cpp:489 port/frontend/shell/settings.cpp:486
+#: port/app/ingame3ds.cpp:490 port/frontend/shell/settings.cpp:486
 #, menu
 msgid "Texture filter"
 msgstr "Фильтр текстур"
 
-#: port/app/ingame3ds.cpp:490
+#: port/app/ingame3ds.cpp:491
 #, menu
 msgid "Smooths textures as they are scaled up. The costliest setting here: if a game stutters, try None first."
 msgstr "Сглаживает текстуры при увеличении. Самая затратная настройка здесь: если игра подтормаживает, сначала попробуйте «Нет»."
 
 #. no speed limit
-#: port/app/ingame3ds.cpp:496
+#: port/app/ingame3ds.cpp:497
 #, menu
 msgid "Speed limit"
 msgstr "Ограничение скорости"
 
 #. no speed limit
-#: port/app/ingame3ds.cpp:496
+#: port/app/ingame3ds.cpp:497
 #, menu
 msgctxt "speed limit"
 msgid "None"
 msgstr "Нет"
 
-#: port/app/ingame3ds.cpp:497
+#: port/app/ingame3ds.cpp:498
 #, menu
 msgid "Above 100% hurries through slow scenes; None runs as fast as the PS5 can. For this game only."
 msgstr "Выше 100 % ускоряет медленные сцены; «Нет» — так быстро, как может PS5. Только для этой игры."
 
-#: port/app/ingame3ds.cpp:498
+#: port/app/ingame3ds.cpp:499
 #, menu
 msgid "Unlimited"
 msgstr "Без ограничений"
 
-#: port/app/ingame3ds.cpp:500 port/app/ingame3ds.cpp:503
+#: port/app/ingame3ds.cpp:501 port/app/ingame3ds.cpp:504
 #, menu
 msgid "Speed"
 msgstr "Скорость"
 
-#: port/app/ingame3ds.cpp:500
+#: port/app/ingame3ds.cpp:501
 #, menu
 msgid "How fast the game may run."
 msgstr "С какой скоростью может идти игра."
 
-#: port/app/ingame3ds.cpp:503
+#: port/app/ingame3ds.cpp:504
 #, menu
 msgid "The emulated CPU's clock, and how fast the game may run."
 msgstr "Частота эмулируемого ЦП и то, насколько быстро может идти игра."
 
-#: port/app/ingame3ds.cpp:504 port/frontend/shell/settings.cpp:667
+#: port/app/ingame3ds.cpp:505 port/frontend/shell/settings.cpp:667
 #, menu
 msgid "CPU clock"
 msgstr "Частота ЦП"
 
-#: port/app/ingame3ds.cpp:505
+#: port/app/ingame3ds.cpp:506
 #, menu
 msgid "Below 100% can bring a slow game to full speed; above it smooths games that dropped frames on the 3DS."
 msgstr "Ниже 100 % может вернуть медленной игре полную скорость; выше — делает плавнее игры, терявшие кадры на 3DS."
 
-#: port/app/ingame3ds.cpp:511
+#: port/app/ingame3ds.cpp:512
 #, menu
 msgid "Save states"
 msgstr "Сохранения состояния"
 
-#: port/app/ingame3ds.cpp:511 port/app/ingame3ds.cpp:619 port/app/ingame3ds.cpp:620
+#: port/app/ingame3ds.cpp:512 port/app/ingame3ds.cpp:620 port/app/ingame3ds.cpp:621
 #, menu
 msgid "Slot {0}"
 msgstr "Ячейка {0}"
 
-#: port/app/ingame3ds.cpp:512
+#: port/app/ingame3ds.cpp:513
 #, menu
 msgid "Five slots for this game: save exactly where you are, and come back to it."
 msgstr "Пять ячеек для этой игры: сохраняйтесь ровно там, где вы есть, и возвращайтесь туда."
 
 #. a save state slot's number, then when it was saved (or empty)
-#: port/app/ingame3ds.cpp:514
+#: port/app/ingame3ds.cpp:515
 #, menu
 msgid "Slot"
 msgstr "Ячейка"
 
 #. a save state slot's number, then when it was saved (or empty)
-#: port/app/ingame3ds.cpp:514
+#: port/app/ingame3ds.cpp:515
 #, menu
 msgid "(empty)"
 msgstr "(пусто)"
 
-#: port/app/ingame3ds.cpp:515
+#: port/app/ingame3ds.cpp:516
 #, menu
 msgid "Which of this game's five slots to save to or load from."
 msgstr "В какую из пяти ячеек этой игры сохранять или из какой загружать."
 
-#: port/app/ingame3ds.cpp:516
+#: port/app/ingame3ds.cpp:517
 #, menu
 msgid "Save to this slot"
 msgstr "Сохранить в эту ячейку"
 
-#: port/app/ingame3ds.cpp:517
+#: port/app/ingame3ds.cpp:518
 #, menu
 msgid "Saves the game as it is now, replacing what the slot had. Newer app versions may not load it: keep saving in the game too."
 msgstr "Сохраняет игру как есть, заменяя содержимое ячейки. Новые версии приложения могут его не загрузить: продолжайте сохраняться и в самой игре."
 
-#: port/app/ingame3ds.cpp:519
+#: port/app/ingame3ds.cpp:520
 #, menu
 msgid "Cheats"
 msgstr "Читы"
 
-#: port/app/ingame3ds.cpp:520
+#: port/app/ingame3ds.cpp:521
 #, menu
 msgid "The game's cheats, from melonds/cheats/<game file>.mch (melonDS's format)."
 msgstr "Читы игры из melonds/cheats/<файл игры>.mch (формат melonDS)."
 
-#: port/app/ingame3ds.cpp:521
+#: port/app/ingame3ds.cpp:522
 #, menu
 msgid "The game's cheats, from azahar/cheats/<title ID>.txt (Gateway format)."
 msgstr "Читы для игры из azahar/cheats/<ID игры>.txt (формат Gateway)."
 
-#: port/app/ingame3ds.cpp:524
+#: port/app/ingame3ds.cpp:525
 #, menu
 msgid "Cross, Left or Right turns it on or off, at once; it is kept for next time."
 msgstr "Крестик, влево или вправо сразу включают или выключают его; запоминается на следующий раз."
 
-#: port/app/ingame3ds.cpp:526
+#: port/app/ingame3ds.cpp:527
 #, menu
 msgid "No cheats for this game"
 msgstr "Для этой игры нет читов"
 
-#: port/app/ingame3ds.cpp:527
+#: port/app/ingame3ds.cpp:528
 #, menu
 msgid "Put them in /data/ps5cemu/melonds/cheats/<game file>.mch (the game's file name, .mch for .nds), then start the game again."
 msgstr "Положите их в /data/ps5cemu/melonds/cheats/<файл игры>.mch (имя файла игры, .mch вместо .nds) и запустите игру заново."
 
-#: port/app/ingame3ds.cpp:529
+#: port/app/ingame3ds.cpp:530
 #, menu
 msgid "Put them in /data/ps5cemu/azahar/cheats/<title ID>.txt, then start the game again."
 msgstr "Положите их в /data/ps5cemu/azahar/cheats/<ID игры>.txt и перезапустите игру."
 
 #. how many of the game's cheats are on: {0} of {1}
-#: port/app/ingame3ds.cpp:532 port/frontend/shell/eden.cpp:1480
+#: port/app/ingame3ds.cpp:533 port/frontend/shell/eden.cpp:1480
 #, menu
 msgid "{0} of {1} on"
 msgstr "Включено: {0} из {1}"
 
-#: port/app/ingame3ds.cpp:538
+#: port/app/ingame3ds.cpp:539
 #, menu
 msgid "Achievements"
 msgstr "Достижения"
 
-#: port/app/ingame3ds.cpp:538 port/frontend/shell/classic.cpp:462 port/frontend/shell/installs.cpp:376 port/frontend/shell/pages.cpp:325 port/frontend/shell/pages.cpp:823 port/frontend/shell/pages.cpp:1200
+#: port/app/ingame3ds.cpp:539 port/frontend/shell/classic.cpp:462 port/frontend/shell/installs.cpp:376 port/frontend/shell/pages.cpp:325 port/frontend/shell/pages.cpp:823 port/frontend/shell/pages.cpp:1200
 #, menu
 msgid "{0} of {1}"
 msgstr "{0} из {1}"
 
-#: port/app/ingame3ds.cpp:539
+#: port/app/ingame3ds.cpp:540
 #, menu
 msgid "This game's RetroAchievements."
 msgstr "RetroAchievements этой игры."
 
-#: port/app/ingame3ds.cpp:545
+#: port/app/ingame3ds.cpp:546
 #, menu
 msgid "Earned"
 msgstr "Получено"
 
-#: port/app/ingame3ds.cpp:545
+#: port/app/ingame3ds.cpp:546
 #, menu
 msgid "Earned {0}"
 msgstr "Получено {0}"
 
-#: port/app/ingame3ds.cpp:545
+#: port/app/ingame3ds.cpp:546
 #, menu
 msgid "{0} point"
 msgid_plural "{0} points"
@@ -1513,208 +1513,162 @@ msgstr[0] "{0} очко"
 msgstr[1] "{0} очка"
 msgstr[2] "{0} очков"
 
-#: port/app/ingame3ds.cpp:549
+#: port/app/ingame3ds.cpp:550
 #, menu
 msgid "No achievements"
 msgstr "Нет достижений"
 
-#: port/app/ingame3ds.cpp:550
+#: port/app/ingame3ds.cpp:551
 #, menu
 msgid "RetroAchievements lists a game's achievements once it has a set for it."
 msgstr "RetroAchievements покажет достижения игры, как только для неё появится набор."
 
-#: port/app/ingame3ds.cpp:555
+#: port/app/ingame3ds.cpp:556
 #, menu
 msgid "Hold an amiibo dump to the 3DS's reader when the game asks for one."
 msgstr "Приложите дамп amiibo к считывателю 3DS, когда игра попросит."
 
-#: port/app/ingame3ds.cpp:558
+#: port/app/ingame3ds.cpp:559
 #, menu
 msgid "Left and Right choose an amiibo dump; Cross holds it to the reader."
 msgstr "Влево и вправо выбирают дамп amiibo; Крестик прикладывает его к считывателю."
 
-#: port/app/ingame3ds.cpp:559
+#: port/app/ingame3ds.cpp:560
 #, menu
 msgid "Take the amiibo away"
 msgstr "Убрать amiibo"
 
-#: port/app/ingame3ds.cpp:559
+#: port/app/ingame3ds.cpp:560
 #, menu
 msgid "Takes the amiibo off the reader, as lifting it off would."
 msgstr "Убирает amiibo со считывателя, как если бы вы его подняли."
 
 #. the DS's lid, closed or open
-#: port/app/ingame3ds.cpp:566
+#: port/app/ingame3ds.cpp:567
 #, menu
 msgid "Lid closed"
 msgstr "Крышка закрыта"
 
-#: port/app/ingame3ds.cpp:567
+#: port/app/ingame3ds.cpp:568
 #, menu
 msgid "The lid, the left stick's deadzone and where A and B are. Hold R3 to blow into the microphone."
 msgstr "Крышка, мёртвая зона левого стика и расположение A и B. Удерживайте R3, чтобы подуть в микрофон."
 
-#: port/app/ingame3ds.cpp:568
+#: port/app/ingame3ds.cpp:569
 #, menu
 msgid "Lid"
 msgstr "Крышка"
 
-#: port/app/ingame3ds.cpp:568
+#: port/app/ingame3ds.cpp:569
 #, menu
 msgid "Closed"
 msgstr "Закрыта"
 
-#: port/app/ingame3ds.cpp:568 port/frontend/shell/eden.cpp:477 port/frontend/shell/eden.cpp:490 port/frontend/shell/eden.cpp:499 port/frontend/shell/eden.cpp:504 port/frontend/shell/eden.cpp:506 port/frontend/shell/eden.cpp:1298 port/frontend/shell/shell.cpp:1241 port/frontend/shell/shell.cpp:1270 port/frontend/shell/shell.cpp:1279 port/frontend/shell/shell.cpp:1288 port/frontend/shell/shell.cpp:1294 port/frontend/shell/shell.cpp:1309
+#: port/app/ingame3ds.cpp:569 port/frontend/shell/eden.cpp:477 port/frontend/shell/eden.cpp:490 port/frontend/shell/eden.cpp:499 port/frontend/shell/eden.cpp:504 port/frontend/shell/eden.cpp:506 port/frontend/shell/eden.cpp:1298 port/frontend/shell/shell.cpp:1237 port/frontend/shell/shell.cpp:1266 port/frontend/shell/shell.cpp:1275 port/frontend/shell/shell.cpp:1284 port/frontend/shell/shell.cpp:1290 port/frontend/shell/shell.cpp:1305
 #, menu
 msgid "Open"
 msgstr "Открыть"
 
-#: port/app/ingame3ds.cpp:569
+#: port/app/ingame3ds.cpp:570
 #, menu
 msgid "Closes the DS's lid, for games that ask you to; the DS sleeps until it is opened. Choose it again to open it."
 msgstr "Закрывает крышку DS для игр, которые об этом просят; DS спит, пока её не откроют. Выберите снова, чтобы открыть."
 
-#: port/app/ingame3ds.cpp:570 port/app/ingame3ds.cpp:580 port/frontend/shell/settings.cpp:601
+#: port/app/ingame3ds.cpp:571 port/app/ingame3ds.cpp:581 port/frontend/shell/settings.cpp:601
 #, menu
 msgid "Stick deadzone"
 msgstr "Мёртвая зона стика"
 
-#: port/app/ingame3ds.cpp:571
+#: port/app/ingame3ds.cpp:572
 #, menu
 msgid "How far the left stick moves before it presses the D-pad. Raise it if something drifts when you let go."
 msgstr "Насколько сдвигается левый стик, прежде чем нажать крестовину. Увеличьте, если что-то смещается само, когда вы его отпускаете."
 
-#: port/app/ingame3ds.cpp:573
+#: port/app/ingame3ds.cpp:574
 #, menu
 msgid "A on Circle and B on Cross, where the DS has them, or the other way round, with X and Y swapped to match."
 msgstr "A на Кружке и B на Крестике, где они у DS, или наоборот, а X и Y меняются местами соответственно."
 
-#: port/app/ingame3ds.cpp:577
+#: port/app/ingame3ds.cpp:578
 #, menu
 msgid "Motion controls, the sticks' deadzone and where A and B are."
 msgstr "Управление движением, мёртвая зона стиков и расположение A и B."
 
-#: port/app/ingame3ds.cpp:579
+#: port/app/ingame3ds.cpp:580
 #, menu
 msgid "The DualSense's gyroscope and accelerometer as the 3DS's, for the games that aim or steer by tilting."
 msgstr "Гироскоп и акселерометр DualSense вместо датчиков 3DS — для игр, где целятся или рулят наклоном."
 
-#: port/app/ingame3ds.cpp:581
+#: port/app/ingame3ds.cpp:582
 #, menu
 msgid "How far a stick moves before the game sees it. Raise it if something drifts when you let go."
 msgstr "Насколько сдвигается стик, прежде чем игра это заметит. Увеличьте, если что-то смещается само, когда вы отпускаете."
 
-#: port/app/ingame3ds.cpp:583
+#: port/app/ingame3ds.cpp:584
 #, menu
 msgid "A on Circle and B on Cross, where the 3DS has them, or the other way round, with X and Y swapped to match."
 msgstr "A на Кружке и B на Крестике, как на 3DS, или наоборот, с X и Y, переставленными под стать."
 
-#: port/app/ingame3ds.cpp:595
+#: port/app/ingame3ds.cpp:596
 #, menu
 msgid "Load this slot"
 msgstr "Загрузить эту ячейку"
 
-#: port/app/ingame3ds.cpp:596
+#: port/app/ingame3ds.cpp:597
 #, menu
 msgid "Goes back to the moment the slot was saved. What you did since is lost, so Cross is held."
 msgstr "Возвращает к моменту сохранения ячейки. Всё, что вы сделали с тех пор, теряется, поэтому Крестик нужно удерживать."
 
-#: port/app/ingame3ds.cpp:601 port/frontend/shell/settings.cpp:627
+#: port/app/ingame3ds.cpp:602 port/frontend/shell/settings.cpp:627
 #, menu
 msgid "The touch screen"
 msgstr "Сенсорный экран"
 
-#: port/app/ingame3ds.cpp:601 port/frontend/shell/settings.cpp:627
+#: port/app/ingame3ds.cpp:602 port/frontend/shell/settings.cpp:627
 #, menu
 msgid "The bottom screen"
 msgstr "Нижний экран"
 
-#: port/app/ingame3ds.cpp:619
+#: port/app/ingame3ds.cpp:620
 #, menu
 msgid "Save state"
 msgstr "Сохранить состояние"
 
-#: port/app/ingame3ds.cpp:620
+#: port/app/ingame3ds.cpp:621
 #, menu
 msgid "Load state"
 msgstr "Загрузить состояние"
 
-#: port/app/ingame3ds.cpp:620
+#: port/app/ingame3ds.cpp:621
 #, menu
 msgid "Slot {0} empty"
 msgstr "Ячейка {0} пуста"
 
-#: port/app/ingame3ds.cpp:627
+#: port/app/ingame3ds.cpp:628
 #, menu
 msgid "Slot {0}: {1}"
 msgstr "Ячейка {0}: {1}"
 
-#: port/app/ingame3ds.cpp:696
+#: port/app/ingame3ds.cpp:697
 #, menu
 msgid "Slot {0} is empty"
 msgstr "Ячейка {0} пуста"
 
-#: port/app/ingame3ds.cpp:704
+#: port/app/ingame3ds.cpp:705
 #, menu
 msgid "Saving…"
 msgstr "Сохранение…"
 
-#: port/app/ingame3ds.cpp:704
+#: port/app/ingame3ds.cpp:705
 #, menu
 msgid "Loading…"
 msgstr "Загрузка…"
 
 #. the in-game menu's badge: the game waits behind the menu
-#: port/app/ingame3ds.cpp:757
+#: port/app/ingame3ds.cpp:758
 #, menu
 msgid "Paused"
 msgstr "Пауза"
-
-#: port/app/ingame3ds.cpp:815 port/frontend/shell/shell.cpp:2142 port/frontend/shell/shell.cpp:2171
-#, menu
-msgid "OK"
-msgstr "OK"
-
-#. over the 3DS's keyboard: what the game asks to have typed
-#: port/app/ingame3ds.cpp:832
-#, menu
-msgid "The game asks for"
-msgstr "Игра просит ввести"
-
-#: port/app/ingame3ds.cpp:833
-#, menu
-msgid "Some text"
-msgstr "Текст"
-
-#. the 3DS keyboard's keys
-#: port/app/ingame3ds.cpp:862 port/frontend/shell/shell.cpp:2093
-#, menu
-msgid "Shift: on"
-msgstr "Shift: вкл."
-
-#. the 3DS keyboard's keys
-#. the 3DS keyboard's hints: Cross types the focused key
-#: port/app/ingame3ds.cpp:862 port/app/ingame3ds.cpp:882 port/frontend/shell/shell.cpp:1226 port/frontend/shell/shell.cpp:2093
-#, menu
-msgid "Shift"
-msgstr "Shift"
-
-#: port/app/ingame3ds.cpp:864 port/frontend/shell/shell.cpp:2093
-#, menu
-msgid "Space"
-msgstr "Пробел"
-
-#. the 3DS keyboard's hints: Cross types the focused key
-#: port/app/ingame3ds.cpp:866 port/app/ingame3ds.cpp:882 port/frontend/shell/shell.cpp:1226 port/frontend/shell/shell.cpp:2093
-#, menu
-msgid "Delete"
-msgstr "Удалить"
-
-#. the 3DS keyboard's hints: Cross types the focused key
-#: port/app/ingame3ds.cpp:882 port/frontend/shell/shares.cpp:300 port/frontend/shell/shell.cpp:1226
-#, menu
-msgid "Type"
-msgstr "Ввести"
 
 #. how the DS's screens are scaled to the TV: the filters' names
 #: port/app/ingame3ds.h:55 port/frontend/shell/settings.cpp:109
@@ -1796,6 +1750,57 @@ msgstr "Здесь он уже установлен."
 #, menu
 msgid "An install is already running."
 msgstr "Установка уже идёт."
+
+#: port/app/keyboard_menu.h:61 port/frontend/shell/shell.cpp:2173 port/frontend/shell/shell.cpp:2202
+#, menu
+msgid "OK"
+msgstr "OK"
+
+#. over the in-game keyboard: what the game asks to have typed
+#: port/app/keyboard_menu.h:78
+#, menu
+msgid "The game asks for"
+msgstr "Игра просит ввести"
+
+#: port/app/keyboard_menu.h:79
+#, menu
+msgid "Some text"
+msgstr "Текст"
+
+#: port/app/keyboard_menu.h:96 port/frontend/shell/shell.cpp:2101
+#, menu
+msgid "L1 R1: {0}"
+msgstr "L1 R1: {0}"
+
+#. the in-game keyboard's keys
+#: port/app/keyboard_menu.h:153 port/frontend/shell/shell.cpp:2124
+#, menu
+msgid "Shift: on"
+msgstr "Shift: вкл."
+
+#. the in-game keyboard's keys
+#. the in-game keyboard's hints: Cross types the focused key
+#: port/app/keyboard_menu.h:153 port/app/keyboard_menu.h:173 port/frontend/shell/shell.cpp:1222 port/frontend/shell/shell.cpp:2124
+#, menu
+msgid "Shift"
+msgstr "Shift"
+
+#: port/app/keyboard_menu.h:155 port/frontend/shell/shell.cpp:2124
+#, menu
+msgid "Space"
+msgstr "Пробел"
+
+#. the in-game keyboard's hints: Cross types the focused key
+#: port/app/keyboard_menu.h:157 port/app/keyboard_menu.h:173 port/frontend/shell/shell.cpp:1222 port/frontend/shell/shell.cpp:2124
+#, menu
+msgid "Delete"
+msgstr "Удалить"
+
+#. the in-game keyboard's hints: Cross types the focused key
+#: port/app/keyboard_menu.h:173 port/frontend/shell/shares.cpp:300 port/frontend/shell/shell.cpp:1222
+#, menu
+msgid "Type"
+msgstr "Ввести"
 
 #. two items of a list ("Action, Adventure"); a longer one joins each next item the same way
 #: port/app/lang.cpp:426
@@ -2077,7 +2082,7 @@ msgstr "Не удалось создать {0}"
 msgid "{0} could not be copied: is the PS5's storage full?"
 msgstr "Не удалось скопировать {0}: память PS5 заполнена?"
 
-#: port/app/mods.cpp:229 port/app/pack_updates.cpp:285 port/app/updates.cpp:445
+#: port/app/mods.cpp:229 port/app/pack_updates.cpp:285 port/app/updates.cpp:447
 msgid "Stopped for a game"
 msgstr "Остановлено ради игры"
 
@@ -2089,15 +2094,15 @@ msgstr "Не удалось прочитать {0}"
 msgid "{0} could not be written"
 msgstr "не удалось записать {0}"
 
-#: port/app/pack_updates.cpp:151 port/app/updates.cpp:304
+#: port/app/pack_updates.cpp:151 port/app/updates.cpp:306
 msgid "the download is not a ZIP ({0})"
 msgstr "загрузка не является ZIP-архивом ({0})"
 
-#: port/app/pack_updates.cpp:179 port/app/updates.cpp:330
+#: port/app/pack_updates.cpp:179 port/app/updates.cpp:332
 msgid "{0} could not be unpacked"
 msgstr "не удалось распаковать {0}"
 
-#: port/app/pack_updates.cpp:196 port/app/updates.cpp:350
+#: port/app/pack_updates.cpp:196 port/app/updates.cpp:352
 msgid "stopped for a game"
 msgstr "остановлено ради игры"
 
@@ -2105,12 +2110,12 @@ msgstr "остановлено ради игры"
 msgid "the download holds no packs"
 msgstr "в загрузке нет пакетов"
 
-#: port/app/pack_updates.cpp:214 port/app/updates.cpp:513
+#: port/app/pack_updates.cpp:214 port/app/updates.cpp:515
 msgid "GitHub could not be found: is the PS5 online?"
 msgstr "GitHub не найден: PS5 подключена к сети?"
 
 #. why an update did not finish
-#: port/app/pack_updates.cpp:247 port/app/updates.cpp:370
+#: port/app/pack_updates.cpp:247 port/app/updates.cpp:372
 msgid "GitHub did not answer with a release"
 msgstr "GitHub не ответил релизом"
 
@@ -2172,47 +2177,47 @@ msgstr "Удерживать"
 msgid "Hold Cross until the ring fills."
 msgstr "Удерживайте Крестик, пока кольцо не заполнится."
 
-#: port/app/updates.cpp:340
+#: port/app/updates.cpp:342
 msgid "{0} could not be written (is /data full?)"
 msgstr "Не удалось записать {0} (/data заполнен?)"
 
-#: port/app/updates.cpp:355
+#: port/app/updates.cpp:357
 msgid "the download has no eboot.bin"
 msgstr "в загрузке нет eboot.bin"
 
-#: port/app/updates.cpp:377
+#: port/app/updates.cpp:379
 msgid "The latest release's version ({0}) is not one this can read"
 msgstr "Версию последнего релиза ({0}) не удаётся прочитать"
 
-#: port/app/updates.cpp:402
+#: port/app/updates.cpp:404
 msgid "The release's checksums could not be downloaded"
 msgstr "Не удалось загрузить контрольные суммы релиза"
 
-#: port/app/updates.cpp:417
+#: port/app/updates.cpp:419
 msgid "The releases branch has no checksum for {0}"
 msgstr "В ветке релизов нет контрольной суммы для {0}"
 
-#: port/app/updates.cpp:431
+#: port/app/updates.cpp:433
 msgid "The download could not start"
 msgstr "Не удалось начать загрузку"
 
-#: port/app/updates.cpp:445
+#: port/app/updates.cpp:447
 msgid "The download did not finish: is the PS5 online?"
 msgstr "Загрузка не завершилась: PS5 подключена к сети?"
 
-#: port/app/updates.cpp:454
+#: port/app/updates.cpp:456
 msgid "The download is damaged (SHA-256 {0}, not {1})"
 msgstr "Загрузка повреждена (SHA-256 {0} вместо {1})"
 
-#: port/app/updates.cpp:464
+#: port/app/updates.cpp:466
 msgid "PS5CEMU-HAR runs from an image, whose files can't be replaced: install the new release by hand"
 msgstr "PS5CEMU-HAR запущен из образа, файлы которого нельзя заменить: установите новый релиз вручную"
 
-#: port/app/updates.cpp:476
+#: port/app/updates.cpp:478
 msgid "It could not be unpacked: {0}"
 msgstr "Не удалось распаковать: {0}"
 
-#: port/app/updates.cpp:491
+#: port/app/updates.cpp:493
 msgid "{0} could not be replaced ({1}): copy the release's PPSA99360 folder over by hand"
 msgstr "Не удалось заменить {0} ({1}): скопируйте поверх вручную папку PPSA99360 из релиза"
 
@@ -2657,7 +2662,7 @@ msgid "Update"
 msgstr "Обновление"
 
 #. an update found to install ({0}: its version, as 208)
-#: port/frontend/actions.cpp:365 port/frontend/actions.cpp:444 port/frontend/shell/eden.cpp:825 port/frontend/shell/eden.cpp:1349 port/frontend/shell/hub.cpp:209 port/frontend/shell/installs.cpp:42 port/frontend/shell/shell.cpp:793
+#: port/frontend/actions.cpp:365 port/frontend/actions.cpp:444 port/frontend/shell/eden.cpp:825 port/frontend/shell/eden.cpp:1349 port/frontend/shell/hub.cpp:209 port/frontend/shell/installs.cpp:42 port/frontend/shell/shell.cpp:789
 msgid "DLC"
 msgstr "DLC"
 
@@ -2895,14 +2900,14 @@ msgstr "Главная"
 
 #. Eden's rail: its sections
 #. the launcher's tabs
-#: port/frontend/shell/classic.cpp:47 port/frontend/shell/classic.cpp:318 port/frontend/shell/classic.cpp:402 port/frontend/shell/eden.cpp:91 port/frontend/shell/eden.cpp:971 port/frontend/shell/eden.cpp:983 port/frontend/shell/eden.cpp:1097 port/frontend/shell/experiments.cpp:69 port/frontend/shell/experiments.cpp:489 port/frontend/shell/library.cpp:274 port/frontend/shell/recent.cpp:99 port/frontend/shell/recent.cpp:334 port/frontend/shell/shell.cpp:1173
+#: port/frontend/shell/classic.cpp:47 port/frontend/shell/classic.cpp:318 port/frontend/shell/classic.cpp:402 port/frontend/shell/eden.cpp:91 port/frontend/shell/eden.cpp:971 port/frontend/shell/eden.cpp:983 port/frontend/shell/eden.cpp:1097 port/frontend/shell/experiments.cpp:69 port/frontend/shell/experiments.cpp:489 port/frontend/shell/library.cpp:274 port/frontend/shell/recent.cpp:99 port/frontend/shell/recent.cpp:334 port/frontend/shell/shell.cpp:1169
 msgctxt "tab"
 msgid "Library"
 msgstr "Библиотека"
 
 #. Eden's rail: its sections
 #. the launcher's tabs
-#: port/frontend/shell/classic.cpp:47 port/frontend/shell/classic.cpp:560 port/frontend/shell/eden.cpp:91 port/frontend/shell/eden.cpp:1581 port/frontend/shell/eden.cpp:1673 port/frontend/shell/experiments.cpp:69 port/frontend/shell/experiments.cpp:648 port/frontend/shell/shell.cpp:1173
+#: port/frontend/shell/classic.cpp:47 port/frontend/shell/classic.cpp:560 port/frontend/shell/eden.cpp:91 port/frontend/shell/eden.cpp:1581 port/frontend/shell/eden.cpp:1673 port/frontend/shell/experiments.cpp:69 port/frontend/shell/experiments.cpp:648 port/frontend/shell/shell.cpp:1169
 msgctxt "tab"
 msgid "Settings"
 msgstr "Настройки"
@@ -2921,7 +2926,7 @@ msgstr[0] "{0} игра"
 msgstr[1] "{0} игры"
 msgstr[2] "{0} игр"
 
-#: port/frontend/shell/classic.cpp:194 port/frontend/shell/shell.cpp:868
+#: port/frontend/shell/classic.cpp:194 port/frontend/shell/shell.cpp:864
 msgid "Cemu is still starting"
 msgstr "Cemu ещё запускается"
 
@@ -2957,7 +2962,7 @@ msgstr "Запустить игру"
 msgid "Artic Base"
 msgstr "Artic Base"
 
-#: port/frontend/shell/classic.cpp:321 port/frontend/shell/classic.cpp:524 port/frontend/shell/classic.cpp:560 port/frontend/shell/classic.cpp:598 port/frontend/shell/eden.cpp:480 port/frontend/shell/eden.cpp:847 port/frontend/shell/eden.cpp:1299 port/frontend/shell/eden.cpp:1370 port/frontend/shell/eden.cpp:1393 port/frontend/shell/eden.cpp:1669 port/frontend/shell/experiments.cpp:443 port/frontend/shell/experiments.cpp:643 port/frontend/shell/experiments.cpp:1064 port/frontend/shell/experiments.cpp:1254 port/frontend/shell/hub.cpp:236 port/frontend/shell/shell.cpp:1614
+#: port/frontend/shell/classic.cpp:321 port/frontend/shell/classic.cpp:524 port/frontend/shell/classic.cpp:560 port/frontend/shell/classic.cpp:598 port/frontend/shell/eden.cpp:480 port/frontend/shell/eden.cpp:847 port/frontend/shell/eden.cpp:1299 port/frontend/shell/eden.cpp:1370 port/frontend/shell/eden.cpp:1393 port/frontend/shell/eden.cpp:1669 port/frontend/shell/experiments.cpp:443 port/frontend/shell/experiments.cpp:643 port/frontend/shell/experiments.cpp:1064 port/frontend/shell/experiments.cpp:1254 port/frontend/shell/hub.cpp:236 port/frontend/shell/shell.cpp:1610
 msgid "Game settings"
 msgstr "Настройки игры"
 
@@ -3099,7 +3104,7 @@ msgstr "Используйте свои файлы"
 msgid "Games"
 msgstr "Игры"
 
-#: port/frontend/shell/classic.cpp:675 port/frontend/shell/settings.cpp:199 port/frontend/shell/settings.cpp:222 port/frontend/shell/shell.cpp:1616
+#: port/frontend/shell/classic.cpp:675 port/frontend/shell/settings.cpp:199 port/frontend/shell/settings.cpp:222 port/frontend/shell/shell.cpp:1612
 msgid "Saves"
 msgstr "Сохранения"
 
@@ -3131,15 +3136,15 @@ msgstr "Как идёт"
 msgid "Sections"
 msgstr "Разделы"
 
-#: port/frontend/shell/eden.cpp:477 port/frontend/shell/shell.cpp:1241
+#: port/frontend/shell/eden.cpp:477 port/frontend/shell/shell.cpp:1237
 msgid "Move"
 msgstr "Перемещение"
 
-#: port/frontend/shell/eden.cpp:492 port/frontend/shell/eden.cpp:493 port/frontend/shell/eden.cpp:500 port/frontend/shell/eden.cpp:843 port/frontend/shell/eden.cpp:1298 port/frontend/shell/eden.cpp:1392 port/frontend/shell/experiments.cpp:440 port/frontend/shell/experiments.cpp:1062 port/frontend/shell/experiments.cpp:1253 port/frontend/shell/hub.cpp:225 port/frontend/shell/shell.cpp:1273 port/frontend/shell/shell.cpp:1274 port/frontend/shell/shell.cpp:1280 port/frontend/shell/shell.cpp:1609
+#: port/frontend/shell/eden.cpp:492 port/frontend/shell/eden.cpp:493 port/frontend/shell/eden.cpp:500 port/frontend/shell/eden.cpp:843 port/frontend/shell/eden.cpp:1298 port/frontend/shell/eden.cpp:1392 port/frontend/shell/experiments.cpp:440 port/frontend/shell/experiments.cpp:1062 port/frontend/shell/experiments.cpp:1253 port/frontend/shell/hub.cpp:225 port/frontend/shell/shell.cpp:1269 port/frontend/shell/shell.cpp:1270 port/frontend/shell/shell.cpp:1276 port/frontend/shell/shell.cpp:1605
 msgid "Play"
 msgstr "Играть"
 
-#: port/frontend/shell/eden.cpp:492 port/frontend/shell/eden.cpp:493 port/frontend/shell/eden.cpp:500 port/frontend/shell/shell.cpp:1273 port/frontend/shell/shell.cpp:1274 port/frontend/shell/shell.cpp:1280 port/frontend/shell/shell.cpp:1282
+#: port/frontend/shell/eden.cpp:492 port/frontend/shell/eden.cpp:493 port/frontend/shell/eden.cpp:500 port/frontend/shell/shell.cpp:1269 port/frontend/shell/shell.cpp:1270 port/frontend/shell/shell.cpp:1276 port/frontend/shell/shell.cpp:1278
 msgid "Options"
 msgstr "Параметры"
 
@@ -3147,7 +3152,7 @@ msgstr "Параметры"
 msgid "Change emulator"
 msgstr "Сменить эмулятор"
 
-#: port/frontend/shell/eden.cpp:500 port/frontend/shell/eden.cpp:971 port/frontend/shell/library.cpp:274 port/frontend/shell/recent.cpp:99 port/frontend/shell/shell.cpp:1277
+#: port/frontend/shell/eden.cpp:500 port/frontend/shell/eden.cpp:971 port/frontend/shell/library.cpp:274 port/frontend/shell/recent.cpp:99 port/frontend/shell/shell.cpp:1273
 msgid "Sort"
 msgstr "Сортировка"
 
@@ -3155,11 +3160,11 @@ msgstr "Сортировка"
 msgid "Filter"
 msgstr "Фильтр"
 
-#: port/frontend/shell/eden.cpp:501 port/frontend/shell/eden.cpp:1125 port/frontend/shell/experiments.cpp:498 port/frontend/shell/library.cpp:507 port/frontend/shell/library.cpp:549 port/frontend/shell/recent.cpp:363 port/frontend/shell/shell.cpp:1277 port/frontend/shell/shell.cpp:2062
+#: port/frontend/shell/eden.cpp:501 port/frontend/shell/eden.cpp:1125 port/frontend/shell/experiments.cpp:498 port/frontend/shell/library.cpp:507 port/frontend/shell/library.cpp:549 port/frontend/shell/recent.cpp:363 port/frontend/shell/shell.cpp:1273 port/frontend/shell/shell.cpp:2095
 msgid "Search"
 msgstr "Поиск"
 
-#: port/frontend/shell/eden.cpp:504 port/frontend/shell/shell.cpp:1288 port/frontend/shell/shell.cpp:1294
+#: port/frontend/shell/eden.cpp:504 port/frontend/shell/shell.cpp:1284 port/frontend/shell/shell.cpp:1290
 msgid "Pages"
 msgstr "Разделы"
 
@@ -3198,7 +3203,7 @@ msgstr "Добро пожаловать"
 msgid "Last played {0}"
 msgstr "Последний запуск: {0}"
 
-#: port/frontend/shell/eden.cpp:834 port/frontend/shell/eden.cpp:1351 port/frontend/shell/hub.cpp:218 port/frontend/shell/shell.cpp:1623
+#: port/frontend/shell/eden.cpp:834 port/frontend/shell/eden.cpp:1351 port/frontend/shell/hub.cpp:218 port/frontend/shell/shell.cpp:1619
 msgid "Favourite"
 msgstr "Избранное"
 
@@ -3448,7 +3453,7 @@ msgstr "Остановка…"
 msgid "Stop"
 msgstr "Остановить"
 
-#: port/frontend/shell/installs.cpp:324 port/frontend/shell/pages.cpp:1162 port/frontend/shell/shell.cpp:1309
+#: port/frontend/shell/installs.cpp:324 port/frontend/shell/pages.cpp:1162 port/frontend/shell/shell.cpp:1305
 msgid "Install"
 msgstr "Установка"
 
@@ -3489,7 +3494,7 @@ msgstr "Всё найденное установлено."
 msgid "Game files"
 msgstr "Файлы игр"
 
-#: port/frontend/shell/installs.cpp:361 port/frontend/shell/settings.cpp:718 port/frontend/shell/shell.cpp:1621
+#: port/frontend/shell/installs.cpp:361 port/frontend/shell/settings.cpp:718 port/frontend/shell/shell.cpp:1617
 msgid "Updates and DLC"
 msgstr "Обновления и DLC"
 
@@ -3580,7 +3585,7 @@ msgstr "Проверка настройки"
 msgid "Diagnostics"
 msgstr "Диагностика"
 
-#: port/frontend/shell/library.cpp:81 port/frontend/shell/shell.cpp:881
+#: port/frontend/shell/library.cpp:81 port/frontend/shell/shell.cpp:877
 msgid "Starting Cemu"
 msgstr "Запуск Cemu"
 
@@ -3637,7 +3642,7 @@ msgstr "У этого пакета нет описания."
 msgid "No presets"
 msgstr "Нет пресетов"
 
-#: port/frontend/shell/pages.cpp:361 port/frontend/shell/shell.cpp:1299
+#: port/frontend/shell/pages.cpp:361 port/frontend/shell/shell.cpp:1295
 msgid "Presets"
 msgstr "Пресеты"
 
@@ -4059,7 +4064,7 @@ msgstr "Найден в /data/ps5cemu"
 msgid "Missing (only .wud/.wux need it)"
 msgstr "Отсутствует (нужен только .wud/.wux)"
 
-#: port/frontend/shell/pages.cpp:1272 port/frontend/shell/shell.cpp:1961 port/frontend/shell/shell.cpp:1988
+#: port/frontend/shell/pages.cpp:1272 port/frontend/shell/shell.cpp:1984 port/frontend/shell/shell.cpp:2011
 msgid "In use"
 msgstr "Используется"
 
@@ -4182,7 +4187,7 @@ msgstr[0] "{0} DLC"
 msgstr[1] "{0} DLC"
 msgstr[2] "{0} DLC"
 
-#: port/frontend/shell/recent.cpp:358 port/frontend/shell/shell.cpp:1273
+#: port/frontend/shell/recent.cpp:358 port/frontend/shell/shell.cpp:1269
 msgid "Display"
 msgstr "Изображение"
 
@@ -4515,7 +4520,7 @@ msgstr "Крестик — загрузить"
 msgid "{0}: Cross to install"
 msgstr "{0}: Крестик — установить"
 
-#: port/frontend/shell/settings.cpp:271 port/frontend/shell/shell.cpp:2121
+#: port/frontend/shell/settings.cpp:271 port/frontend/shell/shell.cpp:2152
 msgid "Downloading…"
 msgstr "Загрузка…"
 
@@ -6273,330 +6278,316 @@ msgstr "Включите общий доступ к папке на компью
 msgid "Nothing is ever written to it."
 msgstr "На неё никогда ничего не записывается."
 
-#: port/frontend/shell/shell.cpp:213
+#: port/frontend/shell/shell.cpp:208
 msgid "Saved your place in the library"
 msgstr "Ваше место в библиотеке сохранено"
 
-#: port/frontend/shell/shell.cpp:216
+#: port/frontend/shell/shell.cpp:211
 msgid "The game could not start"
 msgstr "Игру не удалось запустить"
 
-#: port/frontend/shell/shell.cpp:688
+#: port/frontend/shell/shell.cpp:684
 msgid "Cemu did not start: {0}"
 msgstr "Cemu не запустился: {0}"
 
-#: port/frontend/shell/shell.cpp:802
+#: port/frontend/shell/shell.cpp:798
 msgid "{0} min played"
 msgid_plural "{0} min played"
 msgstr[0] "Сыграно {0} мин"
 msgstr[1] "Сыграно {0} мин"
 msgstr[2] "Сыграно {0} мин"
 
-#: port/frontend/shell/shell.cpp:803
+#: port/frontend/shell/shell.cpp:799
 msgid "{0} h played"
 msgid_plural "{0} h played"
 msgstr[0] "Сыграно {0} ч"
 msgstr[1] "Сыграно {0} ч"
 msgstr[2] "Сыграно {0} ч"
 
-#: port/frontend/shell/shell.cpp:818
+#: port/frontend/shell/shell.cpp:814
 msgid "today"
 msgstr "сегодня"
 
-#: port/frontend/shell/shell.cpp:820
+#: port/frontend/shell/shell.cpp:816
 msgid "yesterday"
 msgstr "вчера"
 
-#: port/frontend/shell/shell.cpp:822
+#: port/frontend/shell/shell.cpp:818
 msgid "{0} day ago"
 msgid_plural "{0} days ago"
 msgstr[0] "{0} день назад"
 msgstr[1] "{0} дня назад"
 msgstr[2] "{0} дней назад"
 
-#: port/frontend/shell/shell.cpp:824
+#: port/frontend/shell/shell.cpp:820
 msgid "{0} week ago"
 msgid_plural "{0} weeks ago"
 msgstr[0] "{0} неделю назад"
 msgstr[1] "{0} недели назад"
 msgstr[2] "{0} недель назад"
 
-#: port/frontend/shell/shell.cpp:825
+#: port/frontend/shell/shell.cpp:821
 msgid "{0} month ago"
 msgid_plural "{0} months ago"
 msgstr[0] "{0} месяц назад"
 msgstr[1] "{0} месяца назад"
 msgstr[2] "{0} месяцев назад"
 
-#: port/frontend/shell/shell.cpp:881
+#: port/frontend/shell/shell.cpp:877
 msgid "Starting melonDS"
 msgstr "Запуск melonDS"
 
-#: port/frontend/shell/shell.cpp:881
+#: port/frontend/shell/shell.cpp:877
 msgid "Starting Azahar"
 msgstr "Запуск Azahar"
 
-#: port/frontend/shell/shell.cpp:916
+#: port/frontend/shell/shell.cpp:912
 msgid "Making {0}'s home screen tile…"
 msgstr "Создание плитки {0} на главном экране…"
 
-#: port/frontend/shell/shell.cpp:923
+#: port/frontend/shell/shell.cpp:919
 msgid "Removing {0}'s home screen tile…"
 msgstr "Плитка {0} убирается с главного экрана…"
 
-#: port/frontend/shell/shell.cpp:935
+#: port/frontend/shell/shell.cpp:931
 msgid "The tile could not be removed"
 msgstr "Не удалось удалить плитку"
 
-#: port/frontend/shell/shell.cpp:935
+#: port/frontend/shell/shell.cpp:931
 msgid "The tile could not be made"
 msgstr "Не удалось создать плитку"
 
-#: port/frontend/shell/shell.cpp:941
+#: port/frontend/shell/shell.cpp:937
 msgid "The tile is removed"
 msgstr "Плитка удалена"
 
-#: port/frontend/shell/shell.cpp:942
+#: port/frontend/shell/shell.cpp:938
 msgid "Its folder is gone from /data/homebrew. If its picture stays on the home screen, delete it there (Options, then Delete), or restart ShadowMount Plus."
 msgstr "Её папки больше нет в /data/homebrew. Если картинка осталась на главном экране, удалите её там (OPTIONS, затем «Удалить») или перезапустите ShadowMount Plus."
 
 #. {0} is the tile's folder, /data/homebrew/PPSA99xxx
-#: port/frontend/shell/shell.cpp:947
+#: port/frontend/shell/shell.cpp:943
 msgid "The tile is made again"
 msgstr "Плитка создана заново"
 
 #. {0} is the tile's folder, /data/homebrew/PPSA99xxx
-#: port/frontend/shell/shell.cpp:947
+#: port/frontend/shell/shell.cpp:943
 msgid "The tile is made"
 msgstr "Плитка создана"
 
-#: port/frontend/shell/shell.cpp:948
+#: port/frontend/shell/shell.cpp:944
 msgid "It is in {0}. ShadowMount Plus puts it on the PS5's home screen as it does any homebrew: if it does not show, restart ShadowMount Plus or the console. The tile starts the game in PS5CEMU-HAR, and closing the game closes the app."
 msgstr "Она лежит в {0}. ShadowMount Plus добавляет её на главный экран PS5, как любой homebrew: если она не появилась, перезапустите ShadowMount Plus или консоль. Плитка запускает игру в PS5CEMU-HAR, а закрытие игры закрывает приложение."
 
-#: port/frontend/shell/shell.cpp:961
+#: port/frontend/shell/shell.cpp:957
 msgid "The tile's game could not start"
 msgstr "Не удалось запустить игру плитки"
 
-#: port/frontend/shell/shell.cpp:989
+#: port/frontend/shell/shell.cpp:985
 msgid "It is not in the library: {0}"
 msgstr "Её нет в библиотеке: {0}"
 
-#: port/frontend/shell/shell.cpp:1226 port/frontend/shell/shell.cpp:1288 port/frontend/shell/shell.cpp:2093
+#: port/frontend/shell/shell.cpp:1222 port/frontend/shell/shell.cpp:1284 port/frontend/shell/shell.cpp:2124
 msgid "Done"
 msgstr "Готово"
 
-#: port/frontend/shell/shell.cpp:1228 port/frontend/shell/shell.cpp:1304 port/frontend/shell/shell.cpp:1308
+#: port/frontend/shell/shell.cpp:1224 port/frontend/shell/shell.cpp:1300 port/frontend/shell/shell.cpp:1304
 msgid "Cancel"
 msgstr "Отмена"
 
-#: port/frontend/shell/shell.cpp:1230 port/frontend/shell/shell.cpp:1232 port/frontend/shell/shell.cpp:1294
+#: port/frontend/shell/shell.cpp:1226 port/frontend/shell/shell.cpp:1228 port/frontend/shell/shell.cpp:1290
 msgid "Close"
 msgstr "Закрыть"
 
-#: port/frontend/shell/shell.cpp:1241
+#: port/frontend/shell/shell.cpp:1237
 msgid "Switch"
 msgstr "Сменить"
 
-#: port/frontend/shell/shell.cpp:1246
+#: port/frontend/shell/shell.cpp:1242
 msgid "Continue"
 msgstr "Продолжить"
 
-#: port/frontend/shell/shell.cpp:1248 port/frontend/shell/shell.cpp:1290 port/frontend/shell/shell.cpp:1291 port/frontend/shell/shell.cpp:1295 port/frontend/shell/shell.cpp:1301
+#: port/frontend/shell/shell.cpp:1244 port/frontend/shell/shell.cpp:1286 port/frontend/shell/shell.cpp:1287 port/frontend/shell/shell.cpp:1291 port/frontend/shell/shell.cpp:1297
 msgid "More about it"
 msgstr "Подробнее"
 
-#: port/frontend/shell/shell.cpp:1249 port/frontend/shell/welcome.cpp:104
+#: port/frontend/shell/shell.cpp:1245 port/frontend/shell/welcome.cpp:104
 msgid "Continue to the Setup check"
 msgstr "Перейти к проверке настройки"
 
-#: port/frontend/shell/shell.cpp:1249 port/frontend/shell/shell.cpp:1258 port/frontend/shell/welcome.cpp:104
+#: port/frontend/shell/shell.cpp:1245 port/frontend/shell/shell.cpp:1254 port/frontend/shell/welcome.cpp:104
 msgid "Continue to the Library"
 msgstr "Перейти в библиотеку"
 
-#: port/frontend/shell/shell.cpp:1254
+#: port/frontend/shell/shell.cpp:1250
 msgid "Change the language"
 msgstr "Сменить язык"
 
-#: port/frontend/shell/shell.cpp:1257
+#: port/frontend/shell/shell.cpp:1253
 msgid "Check again"
 msgstr "Проверить снова"
 
-#: port/frontend/shell/shell.cpp:1274
+#: port/frontend/shell/shell.cpp:1270
 msgid "Recently played / Library"
 msgstr "Недавние / Библиотека"
 
-#: port/frontend/shell/shell.cpp:1277
+#: port/frontend/shell/shell.cpp:1273
 msgid "Filters"
 msgstr "Фильтры"
 
-#: port/frontend/shell/shell.cpp:1280
+#: port/frontend/shell/shell.cpp:1276
 msgid "Jump by letter"
 msgstr "Переход по букве"
 
-#: port/frontend/shell/shell.cpp:1282
+#: port/frontend/shell/shell.cpp:1278
 msgid "Back to the buttons"
 msgstr "Назад к кнопкам"
 
-#: port/frontend/shell/shell.cpp:1283
+#: port/frontend/shell/shell.cpp:1279
 msgid "Scroll"
 msgstr "Прокрутка"
 
-#: port/frontend/shell/shell.cpp:1291 port/frontend/shell/widgets.cpp:313
+#: port/frontend/shell/shell.cpp:1287 port/frontend/shell/widgets.cpp:313
 msgid "Default"
 msgstr "По умолчанию"
 
-#: port/frontend/shell/shell.cpp:1298
+#: port/frontend/shell/shell.cpp:1294
 msgid "Back to the packs"
 msgstr "Назад к пакетам"
 
-#: port/frontend/shell/shell.cpp:1299
+#: port/frontend/shell/shell.cpp:1295
 msgid "On / off"
 msgstr "Вкл. / выкл."
 
-#: port/frontend/shell/shell.cpp:1305
+#: port/frontend/shell/shell.cpp:1301
 msgid "Assign"
 msgstr "Назначить"
 
-#: port/frontend/shell/shell.cpp:1305
+#: port/frontend/shell/shell.cpp:1301
 msgid "Clear"
 msgstr "Очистить"
 
-#: port/frontend/shell/shell.cpp:1309
+#: port/frontend/shell/shell.cpp:1305
 msgid "Use this folder"
 msgstr "Выбрать эту папку"
 
-#: port/frontend/shell/shell.cpp:1312
+#: port/frontend/shell/shell.cpp:1308
 msgid "Number"
 msgstr "Число"
 
-#: port/frontend/shell/shell.cpp:1312
+#: port/frontend/shell/shell.cpp:1308
 msgid "Keep"
 msgstr "Сохранить"
 
-#: port/frontend/shell/shell.cpp:1315
+#: port/frontend/shell/shell.cpp:1311
 msgid "Edit"
 msgstr "Изменить"
 
-#: port/frontend/shell/shell.cpp:1315
+#: port/frontend/shell/shell.cpp:1311
 msgid "Connect"
 msgstr "Подключиться"
 
-#: port/frontend/shell/shell.cpp:1315
+#: port/frontend/shell/shell.cpp:1311
 msgid "Hold to set up"
 msgstr "Удерживать для настройки"
 
-#: port/frontend/shell/shell.cpp:1611
+#: port/frontend/shell/shell.cpp:1607
 msgid "Game hub"
 msgstr "Карточка игры"
 
-#: port/frontend/shell/shell.cpp:1614
+#: port/frontend/shell/shell.cpp:1610
 msgid "Game settings: custom"
 msgstr "Настройки игры: свои"
 
-#: port/frontend/shell/shell.cpp:1620
+#: port/frontend/shell/shell.cpp:1616
 msgid "Add mods from USB"
 msgstr "Добавить моды с USB"
 
-#: port/frontend/shell/shell.cpp:1623
+#: port/frontend/shell/shell.cpp:1619
 msgid "Not a favourite"
 msgstr "Убрать из избранного"
 
-#: port/frontend/shell/shell.cpp:1625
+#: port/frontend/shell/shell.cpp:1621
 msgid "Remove from home screen"
 msgstr "Убрать с главного экрана"
 
-#: port/frontend/shell/shell.cpp:1627
+#: port/frontend/shell/shell.cpp:1623
 msgid "Add to home screen"
 msgstr "Добавить на главный экран"
 
-#: port/frontend/shell/shell.cpp:1918
+#: port/frontend/shell/shell.cpp:1941
 msgid "Added to Favourites"
 msgstr "Добавлено в избранное"
 
-#: port/frontend/shell/shell.cpp:1918
+#: port/frontend/shell/shell.cpp:1941
 msgid "Taken out of Favourites"
 msgstr "Убрано из избранного"
 
-#. the keyboard's other keys, for text typed as it is: R1 and L1 go to capitals and symbols
-#: port/frontend/shell/shell.cpp:2068
-msgid "abc"
-msgstr "abc"
-
-#. the keyboard's other keys, for text typed as it is: R1 and L1 go to capitals and symbols
-#: port/frontend/shell/shell.cpp:2068
-msgid "#+="
-msgstr "#+="
-
-#: port/frontend/shell/shell.cpp:2070
-msgid "L1 R1: {0}"
-msgstr "L1 R1: {0}"
-
-#: port/frontend/shell/shell.cpp:2115
+#: port/frontend/shell/shell.cpp:2146
 msgid "PS5CEMU-HAR {0} is out"
 msgstr "Вышел PS5CEMU-HAR {0}"
 
-#: port/frontend/shell/shell.cpp:2116
+#: port/frontend/shell/shell.cpp:2147
 msgid "This is {0}. Download and install it now? Your games, saves and settings stay as they are."
 msgstr "Это {0}. Загрузить и установить сейчас? Ваши игры, сохранения и настройки останутся как есть."
 
-#: port/frontend/shell/shell.cpp:2117
+#: port/frontend/shell/shell.cpp:2148
 msgid "Update now"
 msgstr "Обновить сейчас"
 
-#: port/frontend/shell/shell.cpp:2117 port/frontend/shell/shell.cpp:2170
+#: port/frontend/shell/shell.cpp:2148 port/frontend/shell/shell.cpp:2201
 msgid "Later"
 msgstr "Позже"
 
-#: port/frontend/shell/shell.cpp:2120 port/frontend/shell/shell.cpp:2125 port/frontend/shell/shell.cpp:2130
+#: port/frontend/shell/shell.cpp:2151 port/frontend/shell/shell.cpp:2156 port/frontend/shell/shell.cpp:2161
 msgid "Updating to {0}"
 msgstr "Обновление до {0}"
 
-#: port/frontend/shell/shell.cpp:2121
+#: port/frontend/shell/shell.cpp:2152
 msgid "Downloading: {0} of {1} MB"
 msgstr "Загрузка: {0} из {1} МБ"
 
-#: port/frontend/shell/shell.cpp:2126
+#: port/frontend/shell/shell.cpp:2157
 msgid "Checking the download"
 msgstr "Проверка загрузки"
 
-#: port/frontend/shell/shell.cpp:2131
+#: port/frontend/shell/shell.cpp:2162
 msgid "Installing"
 msgstr "Установка"
 
-#: port/frontend/shell/shell.cpp:2135
+#: port/frontend/shell/shell.cpp:2166
 msgid "{0} is installed"
 msgstr "{0} установлена"
 
-#: port/frontend/shell/shell.cpp:2136
+#: port/frontend/shell/shell.cpp:2167
 msgid "PS5CEMU-HAR starts again to finish the update."
 msgstr "PS5CEMU-HAR перезапустится, чтобы завершить обновление."
 
-#: port/frontend/shell/shell.cpp:2137
+#: port/frontend/shell/shell.cpp:2168
 msgid "Restart now"
 msgstr "Перезапустить сейчас"
 
-#: port/frontend/shell/shell.cpp:2140
+#: port/frontend/shell/shell.cpp:2171
 msgid "The update did not finish"
 msgstr "Обновление не завершилось"
 
-#: port/frontend/shell/shell.cpp:2141
+#: port/frontend/shell/shell.cpp:2172
 msgid "PS5CEMU-HAR is still {0}."
 msgstr "PS5CEMU-HAR по-прежнему {0}."
 
-#: port/frontend/shell/shell.cpp:2144
+#: port/frontend/shell/shell.cpp:2175
 msgid "Checking for updates"
 msgstr "Поиск обновлений"
 
-#: port/frontend/shell/shell.cpp:2150
+#: port/frontend/shell/shell.cpp:2181
 msgid "PS5CEMU-HAR update"
 msgstr "Обновление PS5CEMU-HAR"
 
-#: port/frontend/shell/shell.cpp:2170
+#: port/frontend/shell/shell.cpp:2201
 msgid "Select"
 msgstr "Выбрать"
 
-#: port/frontend/shell/shell.cpp:2171
+#: port/frontend/shell/shell.cpp:2202
 msgid "Restart"
 msgstr "Перезапустить"
 

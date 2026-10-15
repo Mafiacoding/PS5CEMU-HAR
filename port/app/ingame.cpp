@@ -3,6 +3,7 @@
 #include "boxart.h"
 #include "emulator.h"
 #include "gameinfo.h"
+#include "keyboard_menu.h"
 #include "lang.h"
 #include "menu_canvas.h"
 #include "remote_menu.h"
@@ -48,7 +49,6 @@ namespace
 	std::atomic<bool> s_cornerScreen{false};
 	std::atomic<bool> s_saveRequested{false};
 	std::atomic<bool> s_libraryRequested{false};
-	std::atomic<bool> s_keyboardShift{false};
 
 	struct Pointer
 	{
@@ -68,6 +68,12 @@ namespace
 	Area s_gamePadArea; // where the GamePad's picture is this frame
 	uint32_t s_buttons = 0, s_pressed = 0; // player 1's buttons, and those pressed since the last frame
 	uint32_t s_menuButtons = 0;			   // the same, with the left stick's directions as the D-pad's
+	// Cemu's keyboard, drawn as the 3DS's is (PS5Cemu_DrawKeyboard): the appearance it shows, and the
+	// text it last gave Cemu
+	ps5menu::KeyboardSheet s_keyboard;
+	uint32_t s_keyboardAppearance = 0;
+	bool s_keyboardStarted = false;
+	std::u16string s_keyboardText;
 	std::string s_gameName;
 	// amiibo dumps in /data/ps5cemu/amiibo, looked for as the menu opens; the one chosen, and what
 	// came of the last scan
@@ -504,13 +510,21 @@ namespace
 		}
 	}
 
-	void DrawMenu(float scale)
+	// The menu's type styles, made by Cemu's ImGui at the menu's sizes (SetGame); false until they are
+	// all made, the frame after they are first asked for
+	bool MenuFonts(float scale, ps5menu::Fonts& fonts)
 	{
 		using ps5menu::Weight;
-		const ps5menu::Fonts fonts{ImGui_GetFontFace((int)Weight::SemiBold, ps5menu::kHeading * scale),
-			ImGui_GetFontFace((int)Weight::Medium, ps5menu::kBody * scale), ImGui_GetFontFace((int)Weight::Regular, ps5menu::kLabel * scale),
-			ImGui_GetFontFace((int)Weight::Regular, ps5menu::kCaption * scale), ImGui_GetFontFace((int)Weight::SemiBold, ps5menu::kChip * scale)};
-		if (!fonts.heading || !fonts.body || !fonts.label || !fonts.caption || !fonts.chip)
+		fonts = {ImGui_GetFontFace((int)Weight::SemiBold, ps5menu::kHeading * scale), ImGui_GetFontFace((int)Weight::Medium, ps5menu::kBody * scale),
+			ImGui_GetFontFace((int)Weight::Regular, ps5menu::kLabel * scale), ImGui_GetFontFace((int)Weight::Regular, ps5menu::kCaption * scale),
+			ImGui_GetFontFace((int)Weight::SemiBold, ps5menu::kChip * scale)};
+		return fonts.heading && fonts.body && fonts.label && fonts.caption && fonts.chip;
+	}
+
+	void DrawMenu(float scale)
+	{
+		ps5menu::Fonts fonts;
+		if (!MenuFonts(scale, fonts))
 			return; // ready next frame
 		if (s_menuFresh.exchange(false))
 		{
@@ -697,13 +711,6 @@ void PS5Cemu_ImGuiInput()
 	stick(ImGuiKey_GamepadLStickLeft, ImGuiKey_GamepadLStickRight, data.leftX);
 	stick(ImGuiKey_GamepadLStickUp, ImGuiKey_GamepadLStickDown, data.leftY);
 
-	// Cemu's keyboard reads these itself: Circle deletes, Options is done (swkbd.cpp)
-	const bool keyboard = !s_menuOpen && swkbd_hasKeyboardInputHook();
-	io.NavInputs[ImGuiNavInput_Cancel] = keyboard && !touchpadHeld && (buttons & ps5pad::kCircle) ? 1.0f : 0.0f;
-	io.NavInputs[ImGuiNavInput_Input] = keyboard && !touchpadHeld && (buttons & ps5pad::kOptions) ? 1.0f : 0.0f;
-	if (keyboard && (s_pressed & ps5pad::kTriangle))
-		s_keyboardShift = true;
-
 	io.MousePos = ImVec2(-FLT_MAX, -FLT_MAX);
 	io.MouseDown[0] = false;
 	io.MouseDrawCursor = false; // RenderOverlay draws one the size of the rest
@@ -715,11 +722,6 @@ void PS5Cemu_ImGuiInput()
 			std::clamp(data.touch[0].y / height, 0.0f, 1.0f) * io.DisplaySize.y};
 		io.MouseDown[0] = touchpadHeld;
 	}
-}
-
-bool PS5Cemu_MenuOpen()
-{
-	return s_menuOpen;
 }
 
 // Before ImGui's frame, outside its render pass (patches/cemu, VulkanRenderer::ImguiBegin): the
@@ -753,10 +755,34 @@ void PS5Cemu_ImguiUploads()
 	}
 }
 
-// Triangle on Cemu's keyboard: shift (swkbd.cpp).
-bool PS5Cemu_KeyboardShiftPressed()
+// Cemu's keyboard (swkbd.cpp), on the render thread: drawn as the 3DS's is (app/keyboard_menu.h), in
+// the menus' language, keys and typeface, and read from the buttons as it is. text is the form's, in
+// UTF-16, which it changes as keys are typed, to maxLength units at the most; counted: the game set
+// that length, and the keyboard shows it. appearance changes as the game shows the keyboard again,
+// which starts it over. True when the text is done: OK, or Options. Under the menu, it waits.
+bool PS5Cemu_DrawKeyboard(std::u16string& text, sint32 maxLength, bool counted, uint32 appearance)
 {
-	return s_keyboardShift.exchange(false);
+	if (s_menuOpen)
+		return false;
+	const float scale = UiScale();
+	ps5menu::Fonts fonts;
+	if (!MenuFonts(scale, fonts))
+		return false; // ready next frame
+	if (!s_keyboardStarted || appearance != s_keyboardAppearance)
+	{
+		s_keyboard.Start(ps5keyboard::FromUtf16(text));
+		s_keyboardStarted = true;
+		s_keyboardAppearance = appearance;
+	}
+	else if (text != s_keyboardText)
+		s_keyboard.typed = ps5keyboard::FromUtf16(text); // the game changed it
+	ps5menu::KeyboardAsk ask;
+	ask.maxLength = std::max(maxLength, 0);
+	ask.counted = counted;
+	const int button = s_keyboard.Draw("PS5CEMU-HAR##KeyboardWiiU", scale, fonts, ps5menu::kBlue, ask, s_pressed, s_buttons);
+	text = ps5keyboard::ToUtf16(s_keyboard.typed);
+	s_keyboardText = text;
+	return button >= 0;
 }
 
 // Whether the screen not shown whole goes in a corner (LatteRenderTarget.cpp).

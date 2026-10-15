@@ -812,9 +812,10 @@ namespace ps5shell
 			// text typed as it is (a user name, a password, a computer's name): its spaces at the ends
 			// kept; secret: shown as dots
 			bool raw = false, secret = false;
-			// the keys shown: capitals (Shift, its key or Triangle) and symbols (L1, R1), as on the in-game
-			// keyboard (app/ingame3ds.cpp)
-			bool shift = false, symbols = false;
+			// the keys shown: capitals (Shift, its key or Triangle), and which of the language's pages (L1,
+			// R1: app/keyboard.h), as on the in-game keyboards
+			bool shift = false;
+			int page = 0;
 		} m_keyboard;
 		struct UpdateSheet
 		{

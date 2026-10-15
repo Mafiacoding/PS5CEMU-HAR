@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "ingame3ds.h"
 #include "emulator.h"
+#include "keyboard_menu.h"
 #include "lang.h"
 #include "menu_canvas.h"
 #include "remote_menu.h"
@@ -767,140 +768,41 @@ namespace ps5ingame3ds
 
 		// -- the keyboard ----------------------------------------------------------------------------
 
-		std::string s_typed;		  // the renderer's
-		bool s_shift = false;		  // capitals and the second symbols
-		bool s_symbols = false;		  // the symbols (L1, R1), as the launcher's keyboard has them
-		// the same keys as the launcher's keyboard (frontend/shell/shell.cpp, kKeyRows)
-		constexpr const char* kKeys[3][4] = {
-			{"1234567890", "qwertyuiop", "asdfghjkl'", "zxcvbnm,.-"},
-			{"!?#$%&*()+", "QWERTYUIOP", "ASDFGHJKL\"", "ZXCVBNM;:_"},
-			{"@#$%^&*()=", "~`[]{}\\|/+", "<>;:'\"!?_-", "1234567890"},
-		};
+		ps5menu::KeyboardSheet s_sheet; // the renderer's
 
 		void FinishKeyboard(int button)
 		{
 			std::lock_guard lock(s_mutex);
-			s_keyboardResult = s_typed;
+			s_keyboardResult = s_sheet.typed;
 			s_keyboardButton = button;
 			s_keyboardDone = true;
 			s_keyboardOpen = false;
 		}
 
-		void Type(const std::string& characters, int maxLength)
-		{
-			if (maxLength <= 0 || (int)(s_typed.size() + characters.size()) <= maxLength)
-				s_typed += characters;
-		}
-
-		// The keyboard, laid out on the launcher's 1920x1080 as the menu is: what the game asks for,
-		// the text, the keys, then the game's own buttons (the last confirms, as Options does)
+		// The keyboard (app/keyboard_menu.h): what the game asks for, its length and its buttons, the
+		// last of which confirms, as Options does
 		void DrawKeyboard(float scale)
 		{
-			ImGuiIO& io = ImGui::GetIO();
-			KeyboardRequest request;
-			std::string error;
+			ps5menu::KeyboardAsk ask;
+			int maxLength;
 			{
 				std::lock_guard lock(s_mutex);
-				request = s_keyboard;
-				error = s_keyboardError;
+				ask.hint = s_keyboard.hint;
+				ask.error = s_keyboardError;
+				ask.buttons = s_keyboard.buttons;
+				maxLength = s_keyboard.maxLength;
 				if (s_keyboardFresh)
 				{
-					s_typed.clear();
-					s_shift = false;
-					s_symbols = false;
+					s_sheet.Start({});
 					s_keyboardFresh = false;
 				}
 			}
-			if (request.buttons.empty())
-				request.buttons = {Tr("OK")};
-			const ImVec2 origin{(io.DisplaySize.x - 1920.0f * scale) * 0.5f, (io.DisplaySize.y - 1080.0f * scale) * 0.5f};
-			ImGui::SetNextWindowPos({0, 0}, ImGuiCond_Always);
-			ImGui::SetNextWindowSize(io.DisplaySize, ImGuiCond_Always);
-			ImGui::SetNextWindowFocus();
-			ImGui::PushStyleColor(ImGuiCol_NavHighlight, IM_COL32(0, 0, 0, 0));
-			constexpr ImGuiWindowFlags kFlags = ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings |
-				ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoScrollWithMouse;
-			if (ImGui::Begin("PS5CEMU-HAR##Keyboard3ds", nullptr, kFlags))
-			{
-				const bool appearing = ImGui::IsWindowAppearing();
-				if (appearing)
-					ImGui::GetCurrentContext()->NavDisableHighlight = false;
-				const Canvas canvas{ImGui::GetWindowDrawList(), scale, origin, Colours()};
-				canvas.draw->AddRectFilled({0, 0}, io.DisplaySize, Colours().dim);
-				canvas.Panel(260, 110, 1400, 860);
-				// tr: over the 3DS's keyboard: what the game asks to have typed
-				canvas.Text(g.small, 20, 300, 136, Colours().kicker, ui::Upper(Tr("The game asks for"), ps5lang::Current() == "tr"));
-				canvas.Text(g.head, 32, 300, 170, Colours().title, request.hint.empty() ? Tr("Some text") : request.hint, 1320);
-				canvas.Row(300, 236, 1320, 72, false);
-				canvas.Text(g.row, 24, 330, 258, Colours().text, s_typed + "_");
-				if (request.maxLength > 0)
-					canvas.TextRight(g.small, 20, 1590, 262, Colours().accent, fmt::format("{} / {}", s_typed.size(), request.maxLength));
-				if (!error.empty())
-					canvas.Text(g.small, 20, 300, 320, Colours().accent, error, 1320);
-
-				// a key: true when chosen (Cross, or a touch of the touchpad's click)
-				int keyIndex = 0;
-				auto key = [&](float x, float y, float width, const std::string& label) {
-					ImGui::SetCursorScreenPos(canvas.At(x, y));
-					const bool chosen = ImGui::InvisibleButton(fmt::format("##key{}", keyIndex).c_str(), {width * scale, 72 * scale});
-					if (keyIndex++ == 0 && appearing)
-						ImGui::SetFocusID(ImGui::GetItemID(), ImGui::GetCurrentWindow());
-					canvas.Row(x, y, width, 72, ImGui::IsItemFocused());
-					// a longer language's word a little smaller, never out of its key
-					canvas.TextFit(g.row, 24, x + width / 2, y + 22, Colours().text, label, width - 16, Canvas::Align::Centre);
-					return chosen;
-				};
-				const auto& rows = kKeys[s_symbols ? 2 : s_shift ? 1 : 0];
-				for (int row = 0; row < 4; row++)
-					for (int column = 0; column < 10; column++)
-					{
-						const std::string character(1, rows[row][column]);
-						if (key(325 + column * 128, 360 + row * 84, 118, character))
-							Type(character, request.maxLength);
-					}
-				// tr: the 3DS keyboard's keys
-				if (key(325, 696, 246, s_shift ? Tr("Shift: on") : Tr("Shift")))
-					s_shift = !s_shift;
-				if (key(581, 696, 502, Tr("Space")))
-					Type(" ", request.maxLength);
-				if (key(1093, 696, 502, Tr("Delete")) && !s_typed.empty())
-					s_typed.pop_back();
-				// the game's buttons, right-aligned on the last row
-				const float buttonWidth = 300;
-				const int count = (int)request.buttons.size();
-				for (int button = 0; button < count; button++)
-				{
-					const float x = 1595 - (count - button) * (buttonWidth + 10) + 10;
-					if (key(x, 800, buttonWidth, request.buttons[button]))
-						FinishKeyboard(button);
-				}
-
-				canvas.draw->AddLine(canvas.At(300, 900), canvas.At(1620, 900), Colours().line, scale);
-				float x = 300;
-				const std::vector<std::pair<const char*, std::string>> hints = {
-					// tr: the 3DS keyboard's hints: Cross types the focused key
-					{"cross", Tr("Type")}, {"circle", Tr("Delete")}, {"triangle", Tr("Shift")}, {"options", request.buttons.back()}};
-				const float hintSize = canvas.HintsSize(g.small, hints, 1320);
-				for (const auto& [button, label] : hints)
-					x = canvas.Hint(g.small, x, 915, button, label, hintSize);
-			}
-			ImGui::End();
-			ImGui::PopStyleColor();
-
-			// a USB keyboard types as the keys do; Enter confirms with the last button
-			// Circle deletes, Triangle shifts, Options confirms with the last button (as on the Wii U's
-			// keyboard); not while the touchpad is held for a shortcut
-			if (!(s_buttons & ps5pad::kTouchPad))
-			{
-				if ((s_pressed & (ps5pad::kCircle | ps5pad::kSquare)) && !s_typed.empty())
-					s_typed.pop_back();
-				if (s_pressed & (ps5pad::kL1 | ps5pad::kR1))
-					s_symbols = !s_symbols;
-				if (s_pressed & ps5pad::kTriangle)
-					s_shift = !s_shift;
-				if (s_pressed & ps5pad::kOptions)
-					FinishKeyboard((int)request.buttons.size() - 1);
-			}
+			ask.maxLength = maxLength > 0 ? maxLength : -1;
+			ask.counted = maxLength > 0;
+			const int button =
+				s_sheet.Draw("PS5CEMU-HAR##Keyboard3ds", scale, {g.head, g.body, g.row, g.small, g.chip}, Colours(), ask, s_pressed, s_buttons);
+			if (button >= 0)
+				FinishKeyboard(button);
 		}
 
 		void DrawPerformance(float scale)

@@ -11,7 +11,7 @@ msgstr ""
 msgid "RetroAchievements did not answer. Is the PS5 online?"
 msgstr "RetroAchievements ne répond pas. La PS5 est-elle en ligne?"
 
-#: port/app/emulator.cpp:433
+#: port/app/emulator.cpp:434
 msgid "PS5CEMU-HAR cannot write to {0}. Is the HEN loaded?"
 msgstr "PS5CEMU-HAR ne peut pas écrire dans {0}. Le HEN est-il chargé?"
 
@@ -55,80 +55,80 @@ msgctxt "genre"
 msgid "Wrestling"
 msgstr "Lutte"
 
-#: port/app/ingame.cpp:140 port/frontend/actions.cpp:349
+#: port/app/ingame.cpp:146 port/frontend/actions.cpp:349
 #, menu
 msgid "Wii U Pro Controller"
 msgstr "Manette Pro Wii U"
 
-#: port/app/ingame.cpp:193
+#: port/app/ingame.cpp:199
 #, menu
 msgid "Its own shape keeps the picture's proportions, with bars where they differ from the screen's; Stretched fills it."
 msgstr "Les proportions d’origine gardent celles de l’image, avec des bandes là où elles diffèrent de l’écran; Étirée le remplit."
 
-#: port/app/ingame.cpp:208
+#: port/app/ingame.cpp:214
 #, menu
 msgid "Cemu's notes in a corner while the game builds shaders. Off hides them; they are built either way."
 msgstr "Les notes de Cemu dans un coin pendant que le jeu compile ses shaders. Désactivé les masque; ils sont compilés dans tous les cas."
 
-#: port/app/ingame.cpp:223
+#: port/app/ingame.cpp:229
 #, menu
 msgid "Cross turns it on or off; the game shows it at once."
 msgstr "Croix l’active ou le désactive; le jeu l’applique aussitôt."
 
-#: port/app/ingame.cpp:233
+#: port/app/ingame.cpp:239
 #, menu
 msgid "Left and Right choose another; the game shows it at once."
 msgstr "Gauche et Droite en choisissent un autre; le jeu l’applique aussitôt."
 
-#: port/app/ingame.cpp:270
+#: port/app/ingame.cpp:276
 #, menu
 msgid "Left and Right choose a figure, Cross puts it on; Empty takes the one there off."
 msgstr "Gauche et Droite choisissent une figurine, Croix la pose; Vide retire celle qui s’y trouve."
 
-#: port/app/ingame.cpp:287
+#: port/app/ingame.cpp:293
 #, menu
 msgid "Left and Right choose an amiibo dump; Cross touches it to the GamePad when the game asks for one."
 msgstr "Gauche et Droite choisissent un dump d’amiibo; Croix le pose sur le GamePad quand le jeu en demande un."
 
-#: port/app/ingame3ds.cpp:478
+#: port/app/ingame3ds.cpp:479
 #, menu
 msgid "How the DS's 256 x 192 screens are scaled to the TV. Sharp keeps every pixel square and even; Smooth blurs them together; Square pixels takes the nearest, uneven at most sizes."
 msgstr "Comment les écrans 256 x 192 de la DS sont mis à l’échelle sur la TV. Net garde chaque pixel carré et régulier; Lissé les fond entre eux; Pixels carrés prend le plus proche, irrégulier à la plupart des tailles."
 
-#: port/app/ingame3ds.cpp:497
+#: port/app/ingame3ds.cpp:498
 #, menu
 msgid "Above 100% hurries through slow scenes; None runs as fast as the PS5 can. For this game only."
 msgstr "Au-dessus de 100 %, les scènes lentes passent plus vite; Aucune tourne aussi vite que la PS5 le peut. Pour ce jeu seulement."
 
-#: port/app/ingame3ds.cpp:505
+#: port/app/ingame3ds.cpp:506
 #, menu
 msgid "Below 100% can bring a slow game to full speed; above it smooths games that dropped frames on the 3DS."
 msgstr "Sous 100 %, un jeu lent peut retrouver sa pleine vitesse; au-dessus, les jeux qui perdaient des images sur 3DS sont plus fluides."
 
-#: port/app/ingame3ds.cpp:524
+#: port/app/ingame3ds.cpp:525
 #, menu
 msgid "Cross, Left or Right turns it on or off, at once; it is kept for next time."
 msgstr "Croix, Gauche ou Droite l’active ou le désactive aussitôt; c’est conservé pour la prochaine fois."
 
-#: port/app/ingame3ds.cpp:558
+#: port/app/ingame3ds.cpp:559
 #, menu
 msgid "Left and Right choose an amiibo dump; Cross holds it to the reader."
 msgstr "Gauche et Droite choisissent un dump d’amiibo; Croix le présente au lecteur."
 
-#: port/app/ingame3ds.cpp:569
+#: port/app/ingame3ds.cpp:570
 #, menu
 msgid "Closes the DS's lid, for games that ask you to; the DS sleeps until it is opened. Choose it again to open it."
 msgstr "Ferme le couvercle de la DS, pour les jeux qui vous le demandent; la DS se met en veille jusqu’à ce qu’on l’ouvre. Choisissez-le à nouveau pour l’ouvrir."
 
-#: port/app/pack_updates.cpp:214 port/app/updates.cpp:513
+#: port/app/pack_updates.cpp:214 port/app/updates.cpp:515
 msgid "GitHub could not be found: is the PS5 online?"
 msgstr "GitHub est introuvable : la PS5 est-elle en ligne?"
 
-#: port/app/updates.cpp:340
+#: port/app/updates.cpp:342
 msgid "{0} could not be written (is /data full?)"
 msgstr "{0} n’a pas pu être écrit (/data est-il plein?)"
 
-#: port/app/updates.cpp:445
+#: port/app/updates.cpp:447
 msgid "The download did not finish: is the PS5 online?"
 msgstr "Le téléchargement n’a pas abouti : la PS5 est-elle en ligne?"
 
@@ -337,7 +337,7 @@ msgstr[1] "L’ordinateur partage {0} dossiers. Gauche et Droite choisissent; Cr
 msgid "Turn on file sharing for a folder on your computer or NAS, then add it here. The PS5 reads games from it; it never writes to it. A cable does better than Wi-Fi for Wii U games."
 msgstr "Activez le partage de fichiers pour un dossier de votre ordinateur ou NAS, puis ajoutez-le ici. La PS5 y lit les jeux; elle n’y écrit jamais. Pour les jeux Wii U, un câble vaut mieux que le Wi-Fi."
 
-#: port/frontend/shell/shell.cpp:2116
+#: port/frontend/shell/shell.cpp:2147
 msgid "This is {0}. Download and install it now? Your games, saves and settings stay as they are."
 msgstr "Vous avez {0}. Télécharger et installer la nouvelle version maintenant? Vos jeux, sauvegardes et paramètres restent tels quels."
 
