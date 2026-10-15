@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <array>
 #include <cctype>
+#include <chrono>
 #include <cstdint>
 #include <cstdio>
 #include <filesystem>
@@ -319,7 +320,7 @@ bool Prepare(const ps5emu::Game& game, ps5emu::Game& ready, std::string& error)
 		return false;
 	}
 	const std::string key = game.path.string() + "\n" + std::to_string(zipSize) + "\n" +
-		std::to_string(modified.time_since_epoch().count()) + "\n" + game.archiveMember + (game.archiveFolder ? "D" : "F");
+		std::to_string(static_cast<long long>(std::chrono::duration_cast<std::chrono::nanoseconds>(modified.time_since_epoch()).count())) + "\n" + game.archiveMember + (game.archiveFolder ? "D" : "F");
 	const fs::path cacheRoot = fs::path(ps5paths::kCache) / "zip-games";
 	fs::create_directories(cacheRoot, ec);
 	if (ec)
